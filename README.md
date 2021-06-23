@@ -75,7 +75,7 @@
 
   * Kevin Jun - [kwjun90@gmail.com](mailto:kwjun90@gmail.com)
 
-  * John Hummel - [johnemail@email.com](mailto:johnemail@email.com)
+  * John Hummel - [johnehummeljr@gmail.com](mailto:johnehummeljr@gmail.com)
 
   * Thomas Schmidt - [thomasemail@email.com](mailto:thomasemail@email.com)
 
