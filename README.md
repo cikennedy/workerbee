@@ -73,7 +73,7 @@
   
   * Chris Kennedy - [kennedy.christopherian@gmail.com](mailto:kennedy.christopherian@gmail.com)
 
-  * Kevin Jun - [kevinemail@email.com](mailto:kevinemail@email.com)
+  * Kevin Jun - [kwjun90@gmail.com](mailto:kwjun90@gmail.com)
 
   * John Hummel - [johnemail@email.com](mailto:johnemail@email.com)
 
