@@ -71,17 +71,13 @@
 
   If you have any questions or feedback about the project, please contact the contributors by email at the following email addresses:
   
-  * Chris Kennedy
-  * [kennedy.christopherian@gmail.com](mailto:kennedy.christopherian@gmail.com)
+  * Chris Kennedy - [kennedy.christopherian@gmail.com](mailto:kennedy.christopherian@gmail.com)
 
-  * Kevin Jun
-  * [kevinemail@email.com](mailto:kevinemail@email.com)
+  * Kevin Jun - [kevinemail@email.com](mailto:kevinemail@email.com)
 
-  * John Hummel
-  * [johnemail@email.com](mailto:johnemail@email.com)
+  * John Hummel - [johnemail@email.com](mailto:johnemail@email.com)
 
-  * Thomas Schmidt
-  * [thomasemail@email.com](mailto:thomasemail@email.com)
+  * Thomas Schmidt - [thomasemail@email.com](mailto:thomasemail@email.com)
 
 
 
