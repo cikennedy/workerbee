@@ -37,17 +37,13 @@
 
   Other projects and work by the project creators are featured at the below GitHub profiles:
   
-  * Chris Kennedy
-  * [cikennedy](https://github.com/cikennedy)
+  * [Chris Kennedy](https://github.com/cikennedy)
 
-  * Kevin Jun
-  * [kjun290](https://github.com/kjun290)
+  * [Kevin Jun](https://github.com/kjun290)
 
-  * John Hummel
-  * [johnhumms](https://github.com/johnhumms)
+  * [John Hummel](https://github.com/johnhumms)
 
-  * Thomas Schmidt
-  * [Thomas-NW](https://github.com/Thomas-NW)
+  * [Thomas Schmidt](https://github.com/Thomas-NW)
 
   ## License
 
