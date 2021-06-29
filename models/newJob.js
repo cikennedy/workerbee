@@ -10,10 +10,31 @@ const newJobSchema = new Schema(
       required: "Enter a name job"
     },
 
+    catergory: {
+        type: String,
+        required: "Pick job catergory"
+
+    },
+
     description: {
         type: String,
         trim: true,
         required: "Enter job description"
+    },
+
+    address: {
+        type: String,
+        required: "Enter address for job"
+    },
+
+    phone: {
+        type: String,
+        required: "Enter phone number(xxx-xxx-xxxx) to be reached"
+    },
+
+    email: {
+        type: String,
+        require: "Enter your email"
     },
 
     duration: {
@@ -23,7 +44,7 @@ const newJobSchema = new Schema(
 
     pay: {
       type: Number,
-      required: "Enter the pay amount"
+      required: "Enter the pay amount in USD"
     },
 
     date: {
