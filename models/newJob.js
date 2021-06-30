@@ -54,6 +54,6 @@ const newJobSchema = new Schema(
   }
 );
 
-const NewJob = mongoose.model("newJob", newJobSchema);
+const NewJob = mongoose.model("NewJob", newJobSchema);
 
 module.exports = NewJob;
