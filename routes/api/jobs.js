@@ -2,8 +2,8 @@ const router = require ("express").Router();
 const jobController = require("../../controllers/jobController");
 
 router.route("/")
-    .get(jobController.findall)
-    .post(jobController.creat);
+    .get(jobController.findAll)
+    .post(jobController.create);
 
 router
     .route("/:id")
@@ -11,4 +11,4 @@ router
     .put(jobController.update)
     .delete(jobController.remove);
 
-module.exports = routers;
+module.exports = router;
