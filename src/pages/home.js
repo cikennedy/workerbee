@@ -68,14 +68,14 @@ const cards = [
   },
   {
     img:
-      "https://i.imgur.com/WRvdAxT.jpg",
+      "https://i.imgur.com/2uOxjai.jpg",
     desc: "Lawn Care",
     loc: "Logan Square, Chicago"
     
   },
   {
     img:
-      "https://i.imgur.com/WRvdAxT.jpg",
+      "https://i.imgur.com/H2au5ID.jpg",
     desc: "Moving Help",
     loc: "Lincoln Park, Chicago"
   }
