@@ -66,7 +66,7 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 fullWidth
-                id="username"
+                id="signupusername"
                 label="Username"
                 name="username"
                 autoComplete="username"
@@ -77,7 +77,7 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 fullWidth
-                id="email"
+                id="signupemail"
                 label="Email Address"
                 name="email"
                 autoComplete="email"
@@ -91,7 +91,7 @@ export default function SignUp() {
                 name="password"
                 label="Password"
                 type="password"
-                id="password"
+                id="signuppassword"
                 autoComplete="current-password"
               />
             </Grid>
@@ -108,7 +108,7 @@ export default function SignUp() {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="/" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>

@@ -4,9 +4,9 @@ async function signupFormHandler(event) {
       event.preventDefault();
     
       // Gather the data from the form elements on the page
-      const username = document.querySelector('#username').value.trim();
-      const email = document.querySelector('#email').value.trim();
-      const password = document.querySelector('#password').value.trim();
+      const username = document.querySelector('#signupusername').value.trim();
+      const email = document.querySelector('#signupemail').value.trim();
+      const password = document.querySelector('#signuppassword').value.trim();
     
       if (username && email && password) {
         // Send the username, email, and password to the server
@@ -30,4 +30,4 @@ async function signupFormHandler(event) {
       }
     };
   
-    document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+    document.querySelector('.signupform').addEventListener('submit', signupFormHandler);
