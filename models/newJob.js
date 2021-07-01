@@ -7,12 +7,12 @@ const newJobSchema = new Schema(
     job: {
       type: String,
       trim: true,
-      required: "Enter a name job"
+      required: "Enter a job name"
     },
 
-    catergory: {
+    category: {
         type: String,
-        required: "Pick job catergory"
+        required: "Pick job category"
 
     },
 
