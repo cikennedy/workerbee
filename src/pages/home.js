@@ -59,7 +59,27 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const cards = [1, 2, 3, 4, 5, 6];
+const cards = [
+  {
+    img:
+      "https://i.imgur.com/WRvdAxT.jpg",
+    desc: "Car Wash",
+    loc: "Lakeview, Chicago"
+  },
+  {
+    img:
+      "https://i.imgur.com/WRvdAxT.jpg",
+    desc: "Lawn Care",
+    loc: "Logan Square, Chicago"
+    
+  },
+  {
+    img:
+      "https://i.imgur.com/WRvdAxT.jpg",
+    desc: "Moving Help",
+    loc: "Lincoln Park, Chicago"
+  }
+];
 
 export default function Album() {
   const classes = useStyles();
@@ -109,15 +129,15 @@ export default function Album() {
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://i.imgur.com/WRvdAxT.jpg"
-                    title="Image title"
+                    image={card.img}
+                    title="Car Wash"
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Car Wash
+                      {card.desc}
                     </Typography>
                     <Typography>
-                      Lakeview, Chicago
+                      {card.loc}
                     </Typography>
                   </CardContent>
                   <CardActions>
