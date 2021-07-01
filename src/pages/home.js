@@ -109,7 +109,9 @@ export default function Album() {
               <Grid container spacing={2} justify="center">
                 <Grid item>
                   <Button variant="contained" color="primary">
-                    Post a job
+                  <Link href="/newjob" variant="body2">
+                  {"Post a Job"}
+                </Link>
                   </Button>
                 </Grid>
                 <Grid item>
