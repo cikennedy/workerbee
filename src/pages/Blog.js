@@ -36,9 +36,10 @@ const useStyles = makeStyles((theme) => ({
 // ];
 
 const mainFeaturedPost = {
-  title: 'Title of a longer featured blog post',
+  title: 'Lawncare',
   description:
-    "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
+    "Cutting lawn for single family home",
+  location: "Logan Square, Chicago",
   image: 'https://source.unsplash.com/random',
   imgText: 'main image description',
   linkText: 'Continue reading…',
@@ -66,11 +67,10 @@ const featuredPosts = [
 const posts = [post1, post2, post3];
 
 const sidebar = {
-  title: 'About',
+  title: 'Posted by:',
   description:
-    'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.',
+    'First Last, Location',
   archives: [
-    { title: 'March 2020', url: '#' },
     { title: 'February 2020', url: '#' },
     { title: 'January 2020', url: '#' },
     { title: 'November 1999', url: '#' },
@@ -105,7 +105,7 @@ export default function Blog() {
             ))}
           </Grid> */}
           <Grid container spacing={5} className={classes.mainGrid}>
-            <Main title="From the firehose" posts={posts} />
+            <Main title="About the job" posts={posts} />
             <Sidebar
               title={sidebar.title}
               description={sidebar.description}
