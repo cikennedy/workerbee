@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+
 
 function Copyright() {
   return (
@@ -46,9 +47,41 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignUp() {
+
+function signUp() {
+  const [formObject, setFormObject] = useState({})
   const classes = useStyles();
 
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    setFormObject({...formObject, [name]: value})
+  };
+
+  async function handleFormSubmit(event) {
+    event.preventDefault();
+    const username = formObject.username;
+    const email = formObject.email;
+    const password = formObject.password;
+
+    if (username && email && password) {
+      const response = await fetch('/api/users', {
+        method: 'POST',
+        body: JSON.stringify({
+          username,
+          email,
+          password,
+        }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+    if (response.ok) {
+      console.log('Account Generated.')
+      document.location.replace('/home');
+    } else {
+      alert(response.statusText);
+    }
+  }
+  };
+  
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -70,6 +103,7 @@ export default function SignUp() {
                 label="Username"
                 name="username"
                 autoComplete="username"
+                onChange={handleInputChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -81,6 +115,7 @@ export default function SignUp() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                onChange={handleInputChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -93,12 +128,14 @@ export default function SignUp() {
                 type="password"
                 id="signuppassword"
                 autoComplete="current-password"
+                onChange={handleInputChange}
               />
             </Grid>
 
           </Grid>
           <Button
-            type="submit"
+            // type="submit"
+            onClick={handleFormSubmit}
             fullWidth
             variant="contained"
             color="primary"
@@ -121,3 +158,5 @@ export default function SignUp() {
     </Container>
   );
 }
+
+export default signUp;

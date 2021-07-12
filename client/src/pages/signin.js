@@ -57,8 +57,38 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignInSide() {
+function signInSide() {
+  const [formObject, setFormObject] = useState({})
   const classes = useStyles();
+
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    setFormObject({...formObject, [name]: value})
+  };
+
+  async function handleFormSubmit(event) {
+    event.preventDefault();
+    const username = formObject.username;
+    const email = formObject.email;
+    const password = formObject.password;
+
+    if (email && password) {
+      const response = await fetch('/api/users/signin', {
+        method: 'POST',
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+    if (response.ok) {
+      console.log('Successful Sign In')
+      document.location.replace('/home');
+    } else {
+      alert("Please check your email and password and try again.");
+    }
+  }
+  };
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -82,6 +112,7 @@ export default function SignInSide() {
               label="Email Address"
               name="email"
               autoComplete="email"
+              onChange={handleInputChange}
               autoFocus
             />
             <TextField
@@ -94,13 +125,15 @@ export default function SignInSide() {
               type="password"
               id="signinpassword"
               autoComplete="current-password"
+              onChange={handleInputChange}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
             <Button
-              type="submit"
+              // type="submit"
+              onClick={handleFormSubmit}
               fullWidth
               variant="contained"
               color="primary"
@@ -129,3 +162,5 @@ export default function SignInSide() {
     </Grid>
   );
 }
+
+export default SignInSide;

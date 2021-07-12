@@ -6,11 +6,16 @@ router.route("/")
   .get(userController.findAll)
   .post(userController.create);
 
-// Matches with "/api/user/:id"
+// Matches with "/api/users/:id"
 router
   .route("/:id")
   .get(userController.findById)
   .put(userController.update)
   .delete(userController.remove);
+
+// User sign in
+router 
+  .route("/signin")
+  .post(userController.findOne)  
 
 module.exports = router;
