@@ -48,8 +48,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-function signUpFunction() {
+function signUp() {
   const [formObject, setFormObject] = useState({})
+  const classes = useStyles();
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -80,10 +81,7 @@ function signUpFunction() {
     }
   }
   };
-
-export default function SignUp() {
-  const classes = useStyles();
-
+  
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -160,4 +158,5 @@ export default function SignUp() {
     </Container>
   );
 }
-}
+
+export default signUp;
