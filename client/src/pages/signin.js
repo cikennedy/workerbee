@@ -163,4 +163,4 @@ function signInSide() {
   );
 }
 
-export default SignInSide;
+export default signInSide;
