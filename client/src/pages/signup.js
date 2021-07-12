@@ -75,7 +75,7 @@ function signUp() {
       });
     if (response.ok) {
       console.log('Account Generated.')
-      document.location.replace('/');
+      document.location.replace('/home');
     } else {
       alert(response.statusText);
     }
