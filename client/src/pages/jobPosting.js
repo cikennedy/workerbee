@@ -57,7 +57,7 @@ function newJob() {
 
   async function handleFormSubmit(event) {
     event.preventDefault();
-    const job = formObject.job_title;
+    const job_title = formObject.job_title;
     const category = formObject.category;
     const description = formObject.description;
     const address = formObject.address;
@@ -66,19 +66,27 @@ function newJob() {
     const duration = formObject.duration;
     const pay = formObject.pay;
 
-    if ( job_title && category && description ) {
+    if ( job_title && category && description && address && phone && email
+      && duration && pay ) {
       const response = await fetch('/api/jobs', {
         method: 'POST',
         body: JSON.stringify({
           job_title,
           category,
           description,
+          address,
+          phone,
+          email,
+          duration,
+          pay,
         }),
         headers: { 'Content-Type': 'application/json' },
       });
     if (response.ok) {
       console.log('Job Posted.')
-      document.location.replace(`/jobs/${job_id}`);
+      document.location.replace(`/home`);
+      // Replace the above code with below once the route is working
+      // document.location.replace(`/jobs/${job_id}`);
     } else {
       alert(response.statusText);
     }
@@ -106,6 +114,7 @@ function newJob() {
                 label="Job Title"
                 name="job_title"
                 autoComplete="Job Title"
+                onChange={handleInputChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -117,6 +126,7 @@ function newJob() {
                 label="Category"
                 name="category"
                 autoComplete="category"
+                onChange={handleInputChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -128,6 +138,7 @@ function newJob() {
                 label="Description"
                 name="description"
                 autoComplete="description"
+                onChange={handleInputChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -135,10 +146,11 @@ function newJob() {
                 variant="outlined"
                 required
                 fullWidth
-                id="email"
+                id="address"
                 label="Address"
-                name="email"
-                autoComplete="email"
+                name="address"
+                autoComplete="address"
+                onChange={handleInputChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -146,10 +158,11 @@ function newJob() {
                 variant="outlined"
                 required
                 fullWidth
-                id="email"
+                id="phone"
                 label="Phone"
-                name="email"
-                autoComplete="email"
+                name="phone"
+                autoComplete="phone"
+                onChange={handleInputChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -161,6 +174,7 @@ function newJob() {
                 label="Email"
                 name="email"
                 autoComplete="email"
+                onChange={handleInputChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -168,10 +182,11 @@ function newJob() {
                 variant="outlined"
                 required
                 fullWidth
-                id="email"
+                id="duration"
                 label="Duration (Minutes)"
-                name="email"
-                autoComplete="email"
+                name="duration"
+                autoComplete="duration"
+                onChange={handleInputChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -183,7 +198,8 @@ function newJob() {
                 label="Pay"
                 type="pay"
                 id="pay"
-                autoComplete="current-password"
+                autoComplete="pay"
+                onChange={handleInputChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -191,20 +207,22 @@ function newJob() {
                 variant="outlined"
                 required
                 fullWidth
-                name="password"
+                name="date"
                 label="Date"
-                type="password"
-                id="password"
-                autoComplete="current-password"
+                type="date"
+                id="date"
+                autoComplete="date"
+                onChange={handleInputChange}
               />
             </Grid>
           </Grid>
           <Button
-            type="submit"
+            // type="submit"
             fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}
+            onChange={handleInputChange}
           >
             Post Job
           </Button>
