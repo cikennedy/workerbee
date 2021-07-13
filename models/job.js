@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const jobSchema = new Schema(
   {
-    job: {
+    job_title: {
       type: String,
       trim: true,
       required: "Enter a job name"

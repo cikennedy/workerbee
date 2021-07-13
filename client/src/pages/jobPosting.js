@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -46,8 +46,44 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NewJob() {
+function newJob() {
+  const [formObject, setFormObject] = useState({})
   const classes = useStyles();
+
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    setFormObject({...formObject, [name]: value})
+  };
+
+  async function handleFormSubmit(event) {
+    event.preventDefault();
+    const job = formObject.job_title;
+    const category = formObject.category;
+    const description = formObject.description;
+    const address = formObject.address;
+    const phone = formObject.phone;
+    const email = formObject.email;
+    const duration = formObject.duration;
+    const pay = formObject.pay;
+
+    if ( job_title && category && description ) {
+      const response = await fetch('/api/jobs', {
+        method: 'POST',
+        body: JSON.stringify({
+          job_title,
+          category,
+          description,
+        }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+    if (response.ok) {
+      console.log('Job Posted.')
+      document.location.replace(`/jobs/${job_id}`);
+    } else {
+      alert(response.statusText);
+    }
+  }
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -66,10 +102,10 @@ export default function NewJob() {
                 variant="outlined"
                 required
                 fullWidth
-                id="username"
+                id="job_title"
                 label="Job Title"
-                name="username"
-                autoComplete="username"
+                name="job_title"
+                autoComplete="Job Title"
               />
             </Grid>
             <Grid item xs={12}>
@@ -77,10 +113,10 @@ export default function NewJob() {
                 variant="outlined"
                 required
                 fullWidth
-                id="username"
+                id="category"
                 label="Category"
-                name="username"
-                autoComplete="username"
+                name="category"
+                autoComplete="category"
               />
             </Grid>
             <Grid item xs={12}>
@@ -88,10 +124,10 @@ export default function NewJob() {
                 variant="outlined"
                 required
                 fullWidth
-                id="username"
+                id="description"
                 label="Description"
-                name="username"
-                autoComplete="username"
+                name="description"
+                autoComplete="description"
               />
             </Grid>
             <Grid item xs={12}>
@@ -143,10 +179,10 @@ export default function NewJob() {
                 variant="outlined"
                 required
                 fullWidth
-                name="password"
+                name="pay"
                 label="Pay"
-                type="password"
-                id="password"
+                type="pay"
+                id="pay"
                 autoComplete="current-password"
               />
             </Grid>
@@ -180,3 +216,5 @@ export default function NewJob() {
     </Container>
   );
 }
+
+export default newJob;
