@@ -218,11 +218,11 @@ function newJob() {
           </Grid>
           <Button
             // type="submit"
+            onClick={handleFormSubmit}
             fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}
-            onChange={handleInputChange}
           >
             Post Job
           </Button>
