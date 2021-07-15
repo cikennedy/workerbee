@@ -68,7 +68,6 @@ function SignInSide() {
 
   async function handleFormSubmit(event) {
     event.preventDefault();
-    const username = formObject.username;
     const email = formObject.email;
     const password = formObject.password;
 
