@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import React from "react";
+import Account from './pages/account.js'
 import SignInSide from './pages/signin.js'
 import Album from './pages/home.js'
 import SignUp from './pages/signup.js'
@@ -17,8 +18,8 @@ function App() {
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/newjob" component={NewJob} />
           <Route exact path="/job" component={Blog} />
-          {/* <Route exact path="/account" component={Account} />
-          <Route exact path="/post-job" component={PostJob} /> */}
+          <Route exact path="/account" component={Account} />
+          {/* <Route exact path="/post-job" component={PostJob} /> */}
         {/* <Footer /> */}
       </div>
     </Router>
