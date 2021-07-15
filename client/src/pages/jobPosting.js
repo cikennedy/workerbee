@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function newJob() {
+function NewJob() {
   const [formObject, setFormObject] = useState({})
   const classes = useStyles();
 
@@ -235,4 +235,4 @@ function newJob() {
   );
 }
 
-export default newJob;
+export default NewJob;
