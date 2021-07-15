@@ -1,11 +1,11 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import React from "react";
 import SignInSide from './pages/signin.js'
 import Album from './pages/home.js'
 import SignUp from './pages/signup.js'
 import NewJob from './pages/jobPosting.js'
 import Blog from './pages/Blog.js'
-import './App.css';
+// import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 function App() {
   return (
