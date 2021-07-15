@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function signInSide() {
+function SignInSide() {
   const [formObject, setFormObject] = useState({})
   const classes = useStyles();
 
@@ -163,4 +163,4 @@ function signInSide() {
   );
 }
 
-export default signInSide;
+export default SignInSide;
