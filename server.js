@@ -22,13 +22,11 @@ app.use(routes);
 // Connect to the Mongo DB
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/FinalProjectDB",
-//   {
-//     useCreateIndex: true,
-//     useNewUrlParser: true
-//   }
+  {
+    useCreateIndex: true,
+    useNewUrlParser: true
+  }
 );
-
-
 
 // Add express-session and store as Express.js middleware
 app.use(session({
