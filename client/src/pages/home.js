@@ -1,18 +1,21 @@
-import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
+import React, { useState, useEffect } from 'react';
+// import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-import CameraIcon from '@material-ui/icons/PhotoCamera';
+// import CameraIcon from '@material-ui/icons/PhotoCamera';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-import Toolbar from '@material-ui/core/Toolbar';
+// import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
+import AllJobs from "../components/Jobs"
+import API from "../utils/API";
+import axios from "axios";
 
 function Copyright() {
   return (
@@ -81,8 +84,39 @@ const cards = [
   }
 ];
 
-export default function Album() {
+
+export default function HomePage() {
   const classes = useStyles();
+
+  const [jobs, getJobs] = useState('');
+
+  useEffect(() => { 
+    getAllJobs();
+  }, []);
+
+  const getAllJobs = () => {
+    axios.get('/api/jobs')
+    .then(res => {
+      const allJobData = res.data.jobs.allJobData;
+      console.log(allJobData);
+      getJobs(allJobData);
+    })
+    .catch(err => console.log(err));
+  }
+  
+
+  // useEffect(() => {
+  //   axios.get('/api/jobs')
+  //   .then(res => {
+  //     setJobs([...jobs, res.data]);
+  //     console.log(jobs);
+  //   })
+  // })
+  // useEffect(() => {
+  //   API.getBooks()
+  // })
+  
+
 
   return (
     <React.Fragment>
@@ -123,6 +157,7 @@ export default function Album() {
         </div>
         <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}
+          <AllJobs jobs={jobs}></AllJobs>
           <Grid container spacing={4}>
             {cards.map((card) => (
               <Grid item key={card} xs={12} sm={6} md={4}>
