@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import React from "react";
 import SignInSide from './pages/signin.js'
-import Album from './pages/home.js'
+import HomePage from './pages/home.js'
 import SignUp from './pages/signup.js'
 import NewJob from './pages/jobPosting.js'
 import Blog from './pages/Blog.js'
@@ -13,7 +13,7 @@ function App() {
       <div>
         {/* <Navbar /> */}
           <Route exact path="/" component={SignInSide} />
-          <Route exact path="/home" component={Album} />
+          <Route exact path="/home" component={HomePage} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/newjob" component={NewJob} />
           <Route exact path="/job" component={Blog} />

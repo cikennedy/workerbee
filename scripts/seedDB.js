@@ -119,7 +119,7 @@ const newJobSeed = [
     },
   ]
   
-  db.newJob
+  db.Job
     .remove({})
     .then(() => db.newJob.collection.insertMany(newJobSeed))
     .then(data => {
