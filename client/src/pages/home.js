@@ -87,7 +87,7 @@ const cards = [
 export default function HomePage() {
   const classes = useStyles();
 
-  const [jobs, getJobs] = useState('');
+  const [jobs, getJobs] = useState([]);
 
   useEffect(() => { 
     getAllJobs();
@@ -102,7 +102,7 @@ export default function HomePage() {
       console.log(allJobData);
       getJobs(() => allJobData);
     })
-    .catch(err => console.error(`Error:`));
+    .catch(err => console.error(`Error: ${error}`));
   }
   
 
@@ -141,7 +141,7 @@ export default function HomePage() {
               Here are the jobs available in your area.
             </Typography>
             <div className={classes.heroButtons}>
-              <Grid container spacing={2} justify="center">
+              <Grid container spacing={2} justifyContent="center">
                 <Grid item>
                   <Button href="/newjob" variant="contained" color="primary">
                   Post a Job
@@ -158,22 +158,27 @@ export default function HomePage() {
         </div>
         <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}
-          <AllJobs jobs={jobs}></AllJobs>
           <Grid container spacing={4}>
-            {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
+            {jobs.map((card) => (
+              <Grid item key={card._id} xs={12} sm={6} md={4}>
                 <Card className={classes.card}>
-                  <CardMedia
+                  {/* <CardMedia
                     className={classes.cardMedia}
                     image={card.img}
                     title="Car Wash"
-                  />
+                  /> */}
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      {card.desc}
+                      {card.job_title}
                     </Typography>
-                    <Typography>
-                      {card.loc}
+                    <Typography gutterBottom variant="h5" component="h2">
+                      {card.category}
+                    </Typography>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      {card.address}
+                    </Typography>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      {card.pay}
                     </Typography>
                   </CardContent>
                   <CardActions>
