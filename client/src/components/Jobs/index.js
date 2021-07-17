@@ -13,6 +13,7 @@ export default function AllJobs(props) {
                         <div className='job' key={job._id}>
                             <h3 className="job_name">{job.job_title}</h3>
                             <p className="job_category">{job.category}</p>
+                            <p className="job_address">{job.address}</p>
                             <p className="job_pay">{job.pay}</p>
                         </div>
                     )

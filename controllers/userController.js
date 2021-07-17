@@ -38,7 +38,7 @@ module.exports = {
       }
 
       req.session.save(() => {
-        req.session.user_id = dbModel.id;
+        // req.session.user_id = dbModel.id;
         req.session.email = dbModel.email;
         req.session.username = dbModel.username;
         req.session.loggedIn = true;
