@@ -60,7 +60,7 @@ function Account() {
                     <div className="error-message"></div>
                     <div className="sent-message">Your message has been sent. Thank you!</div>
                   </div>
-                  <div className="text-center"><button type="submit">Send Message</button></div>
+                  <div className="text-center"><button type="submit">Return to Login</button></div>
                 </form>
               </div>
             </div>

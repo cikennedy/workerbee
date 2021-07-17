@@ -158,7 +158,7 @@ section {
   }
   
   .section-title {
-    text-align: left;
+    text-align: center;
     padding-bottom: 30px;
   }
   
@@ -172,7 +172,7 @@ section {
     color: #45505b;
   }
   
-  .section-title h2::before {
+  /* .section-title h2::before {
     content: '';
     position: absolute;
     display: block;
@@ -192,7 +192,7 @@ section {
     background: #0563bb;
     bottom: 0;
     left: calc(50% - 20px);
-  }
+  } */
   
   .section-title p {
     margin-bottom: 10px;
