@@ -19,31 +19,26 @@ module.exports = {
   // incorporate sessions, bcrypt, withauth to the below as well
   findOne: function(req, res) {
     db.User
-    .findOne({
-      where: {
-        email: req.body.email
+    .findOne({ email: req.body.email }).then(dbUserData => {
+      if(!dbUserData) {
+          res.status(404).json({ message: 'No user found with the given email.'});
+          return;
       }
-    })
-    .then(dbModel => {
-      if(!dbModel) {
-        res.status(404).json({ message: 'No user found with the given id.'});
-        return;
-      }
-
-      const correctPassword = dbModel.checkPassword(req.body.password);
+      const correctPassword = dbUserData.password;
+      // const correctPassword = dbUserData.comparePassword(req.body.password);
 
       if (!correctPassword) {
-        res.status(400).json({ message: 'Incorrect password.' });
-        return;
+          res.status(400).json({ message: 'Incorrect Password' })
+          return;
       }
 
       req.session.save(() => {
-        // req.session.user_id = dbModel.id;
-        req.session.email = dbModel.email;
-        req.session.username = dbModel.username;
-        req.session.loggedIn = true;
+              req.session._id = dbUserData._id;
+              req.session.email = dbUserData.email;
+              req.session.username = dbUserData.username;
+              req.session.loggedIn = true;
 
-        res.json({ user: dbModel, message: "You have been signed in."});
+              res.json({ user: dbUserData, message: "You have been logged in." });
 
       });
     });

@@ -84,7 +84,7 @@ function SignInSide() {
       console.log('Successful Sign In')
       document.location.replace('/home');
     } else {
-      alert("Please check your email and password and try again.");
+      alert(response.statusText);
     }
   }
   };
