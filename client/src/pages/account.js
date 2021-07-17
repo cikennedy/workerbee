@@ -1,9 +1,12 @@
 import React from 'react';
+import Navbar from '../components/Navbar.js';
+
+<Navbar />
 
 function Account() {
     return (
   
-      <main id="main">
+     <main id="main">
   
         <section id="contact" className="contact">
           <div className="container" data-aos="fade-up">
