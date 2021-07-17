@@ -7,7 +7,7 @@ export default function AllJobs(props) {
 
         if (jobs.length > 0) {
             return(
-                jobs.map((job, index) => {
+                jobs.map((job) => {
                     console.log(job);
                     return(
                         <div className='job' key={job._id}>

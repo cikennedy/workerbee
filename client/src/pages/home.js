@@ -96,11 +96,11 @@ export default function HomePage() {
 
   const getAllJobs = () => {
     axios.get('/api/jobs')
-    .then(res => {
+    .then((res) => {
       const allJobData = res.data.jobs.allJobData;
       getJobs(allJobData);
     })
-    .catch(err => console.log(err));
+    .catch(err => console.error(`Error: ${error}`));
   }
   
 
