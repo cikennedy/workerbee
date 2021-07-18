@@ -182,7 +182,7 @@ export default function HomePage() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small" color="primary">
+                    <Button href="/details" size="small" color="primary">
                       Details
                     </Button>
                     <Button size="small" color="primary">
