@@ -3,6 +3,7 @@ const jobController = require("../controllers/jobController");
 
 router.route("/")
     .get(jobController.findAll)
+    .post(jobController.create);
 
 router.route("/details/:_id")
     .get(jobController.findById)

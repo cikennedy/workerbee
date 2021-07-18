@@ -102,7 +102,7 @@ export default function HomePage() {
       console.log(allJobData);
       getJobs(() => allJobData);
     })
-    .catch(err => console.error(`Error: ${error}`));
+    .catch(err => console.log(err));
   }
 
 
