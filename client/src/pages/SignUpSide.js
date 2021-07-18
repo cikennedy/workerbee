@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-function signUp() {
+function SignUpSide() {
   const [formObject, setFormObject] = useState({})
   const classes = useStyles();
 
@@ -159,4 +159,4 @@ function signUp() {
   );
 }
 
-export default signUp;
+export default SignUpSide;
