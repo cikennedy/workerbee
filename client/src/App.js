@@ -25,10 +25,8 @@ function App() {
           <Route exact path="/job" component={Blog} />
           <Route exact path="/account" component={Account} />
           <Route exact path="/confirmation" component={Confirmation} />
-
-          <Switch>
           <Route exact path="/details/:_id" component={Details} />
-        </Switch>
+  
           {/* <Route path="/details/:_id" component={Details} /> */}
          {/* <Footer /> */}
       </div>

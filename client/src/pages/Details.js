@@ -10,8 +10,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 // import AllJobs from "../components/Jobs"
-import API from "../utils/API";
-// import axios from "axios";
 import GitHubIcon from '@material-ui/icons/GitHub';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
@@ -19,6 +17,8 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 // import Main from '../components/Main';
 // import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
+// import API from "../utils/API";
+import axios from "axios";
 
 
 function Copyright() {
@@ -136,7 +136,8 @@ export default function Details(props) {
 
   const {id} = useParams()
   useEffect(() => {
-    API.getJob(id)
+    // API.getJob(id)
+    axios.get("/api/jobs/" + id)
       .then(res => setJob(res.data))
       .catch(err => console.log(err));
   }, [])
@@ -160,7 +161,7 @@ export default function Details(props) {
         {/* <Header title="Blog" sections={sections} /> */}
         <main>
           {/* <MainFeaturedPost> */}
-          <Typography gutterBottom variant="h5" component="h2">
+            <Typography gutterBottom variant="h5" component="h2">
                       {job.job_title}
                     </Typography>
 
