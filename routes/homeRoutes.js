@@ -1,14 +1,10 @@
 const router = require ("express").Router();
-const jobController = require("../../controllers/jobController");
+const jobController = require("../controllers/jobController");
 
-// matches with /api/jobs
 router.route("/")
     .get(jobController.findAll)
-    .post(jobController.create);
 
-// matches with /api/jobs/:id
-router
-    .route("/:_id")
+router.route("/details/:_id")
     .get(jobController.findById)
     .put(jobController.update)
     .delete(jobController.remove);

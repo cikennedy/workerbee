@@ -104,7 +104,7 @@ export default function HomePage() {
     })
     .catch(err => console.error(`Error: ${error}`));
   }
-  
+
 
   // useEffect(() => {
   //   axios.get('/api/jobs')
@@ -182,10 +182,10 @@ export default function HomePage() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button href="/details" size="small" color="primary">
+                    <Button href={"/details/" + card._id} size="small" color="primary">
                       Details
                     </Button>
-                    <Button size="small" color="primary">
+                    <Button href={"/confirmation/" + card._id} size="small" color="primary">
                       Apply
                     </Button>
                   </CardActions>

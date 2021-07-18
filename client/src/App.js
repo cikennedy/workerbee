@@ -6,13 +6,13 @@ import HomePage from './pages/HomePage.js'
 import SignUpSide from './pages/SignUpSide.js'
 import NewJob from './pages/NewJob.js'
 import Blog from './pages/Blog.js'
-import Confirmation from './pages/confirmation'
-import Details from '/.pages/DetailPage'
+import Confirmation from './pages/Confirmation'
+import Details from './pages/Details'
 
 
 // import './App.css';
 
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, useParams } from "react-router-dom";
 function App() {
   return (
     <Router>
@@ -25,7 +25,11 @@ function App() {
           <Route exact path="/job" component={Blog} />
           <Route exact path="/account" component={Account} />
           <Route exact path="/confirmation" component={Confirmation} />
-          <Route exact path="/details" component={Details} />
+
+          <Switch>
+          <Route exact path="/details/:_id" component={Details} />
+        </Switch>
+          {/* <Route path="/details/:_id" component={Details} /> */}
          {/* <Footer /> */}
       </div>
     </Router>

@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from "react-router-dom";
 // import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-// import CameraIcon from '@material-ui/icons/PhotoCamera';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 // import Toolbar from '@material-ui/core/Toolbar';
@@ -13,9 +9,17 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
-import AllJobs from "../components/Jobs"
+// import AllJobs from "../components/Jobs"
 import API from "../utils/API";
-import axios from "axios";
+// import axios from "axios";
+import GitHubIcon from '@material-ui/icons/GitHub';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import TwitterIcon from '@material-ui/icons/Twitter';
+// import MainFeaturedPost from '../components/MainFeaturedPost';
+// import Main from '../components/Main';
+// import Sidebar from '../components/Sidebar';
+import Footer from '../components/Footer';
+
 
 function Copyright() {
   return (
@@ -60,6 +64,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(6),
   },
+  mainGrid: {
+    marginTop: theme.spacing(3),
+  },
 }));
 
 const cards = [
@@ -83,27 +90,56 @@ const cards = [
   }
 ];
 
+const sidebar = {
+  title: 'Posted by:',
+  description:
+    'First Last, Location',
+  archives: [
+    { title: 'February 2020', url: '#' },
+    { title: 'January 2020', url: '#' },
+    { title: 'November 1999', url: '#' },
+    { title: 'October 1999', url: '#' },
+    { title: 'September 1999', url: '#' },
+    { title: 'August 1999', url: '#' },
+    { title: 'July 1999', url: '#' },
+    { title: 'June 1999', url: '#' },
+    { title: 'May 1999', url: '#' },
+    { title: 'April 1999', url: '#' },
+  ],
+  social: [
+    { name: 'GitHub', icon: GitHubIcon },
+    { name: 'Twitter', icon: TwitterIcon },
+    { name: 'Facebook', icon: FacebookIcon },
+  ],
+};
 
-export default function Details() {
+export default function Details(props) {
   const classes = useStyles();
 
-  const [jobs, getJobs] = useState([]);
+  const [job, setJob] = useState({});
 
-  useEffect(() => { 
-    getAllJobs();
-  }, []);
+  // useEffect(() => { 
+  //   getDetails();
+  // }, []);
 
-  const getAllJobs = () => {
-    axios.get('/api/jobs')
-    .then((res) => {
-      const allJobData = res.data;
-      console.log('Hello'
-      );
-      console.log(allJobData);
-      getJobs(() => allJobData);
-    })
-    .catch(err => console.error(`Error: ${error}`));
-  }
+  // const getDetails = () => {
+  //   API.getJob()
+  //   .then((res) => {
+  //     const allJobData = res.data;
+  //     console.log('Hello'
+  //     );
+  //     console.log(allJobData);
+  //     getJobDetails(() => allJobData);
+  //   })
+  //   .catch(err => console.error(`Error:`));
+  // }
+
+  const {id} = useParams()
+  useEffect(() => {
+    API.getJob(id)
+      .then(res => setJob(res.data))
+      .catch(err => console.log(err));
+  }, [])
   
 
   // useEffect(() => {
@@ -116,96 +152,67 @@ export default function Details() {
   // useEffect(() => {
   //   API.getBooks()
   // })
-  
-
 
   return (
     <React.Fragment>
       <CssBaseline />
-      {/* <AppBar position="relative">
-        <Toolbar>
-          <CameraIcon className={classes.icon} />
-          <Typography variant="h6" color="inherit" noWrap>
-            Album layout
-          </Typography>
-        </Toolbar>
-      </AppBar> */}
-      <main>
-        {/* Hero unit */}
-        <div className={classes.heroContent}>
-          <Container maxWidth="sm">
-            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-              Workerbee
-            </Typography>
-            <Typography variant="h5" align="center" color="textSecondary" paragraph>
-              Here are the jobs available in your area.
-            </Typography>
-            <div className={classes.heroButtons}>
-              <Grid container spacing={2} justifyContent="center">
-                <Grid item>
-                  <Button href="/newjob" variant="contained" color="primary">
-                  Post a Job
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button variant="outlined" color="primary">
-                    Sort by
-                  </Button>
-                </Grid>
-              </Grid>
-            </div>
-          </Container>
-        </div>
-        <Container className={classes.cardGrid} maxWidth="md">
-          {/* End hero unit */}
-          <Grid container spacing={4}>
-            {jobs.map((card) => (
-              <Grid item key={card._id} xs={12} sm={6} md={4}>
-                <Card className={classes.card}>
-                  {/* <CardMedia
-                    className={classes.cardMedia}
-                    image={card.img}
-                    title="Car Wash"
-                  /> */}
-                  <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      {card.job_title}
+      <Container maxWidth="lg">
+        {/* <Header title="Blog" sections={sections} /> */}
+        <main>
+          {/* <MainFeaturedPost> */}
+          <Typography gutterBottom variant="h5" component="h2">
+                      {job.job_title}
                     </Typography>
+
                     <Typography gutterBottom variant="h5" component="h2">
-                      {card.category}
+                      {job.category}
                     </Typography>
+
                     <Typography gutterBottom variant="h5" component="h2">
-                      {card.address}
+                      {job.description}
                     </Typography>
+
                     <Typography gutterBottom variant="h5" component="h2">
-                      {card.pay}
+                      {job.address}
                     </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small" color="primary">
-                      Details
-                    </Button>
-                    <Button size="small" color="primary">
+
+                    <Typography gutterBottom variant="h5" component="h2">
+                      {job.phone}
+                    </Typography>
+
+                    <Typography gutterBottom variant="h5" component="h2">
+                      {job.email}
+                    </Typography>
+
+                    <Typography gutterBottom variant="h5" component="h2">
+                      {job.duration}
+                    </Typography>
+                    
+                    <Typography gutterBottom variant="h5" component="h2">
+                      {job.pay}
+                    </Typography>
+                    <Button href={"/confirmation/" + job._id} size="small" color="primary">
                       Apply
                     </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
+
+          {/* </MainFeaturedPost> */}
+          {/* <Grid container spacing={4}>
+            {featuredPosts.map((post) => (
+              <FeaturedPost key={post.title} post={post} />
             ))}
+          </Grid> */}
+          <Grid container spacing={5} className={classes.mainGrid}>
+            {/* <Main title="About the job" posts={posts} />
+            <Sidebar
+              title={sidebar.title}
+              description={sidebar.description}
+              archives={sidebar.archives}
+              social={sidebar.social}
+            /> */}
           </Grid>
-        </Container>
-      </main>
-      {/* Footer */}
-      <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
-          Footer
-        </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          Something here to give the footer a purpose!
-        </Typography>
-        <Copyright />
-      </footer>
-      {/* End footer */}
+        </main>
+      </Container>
+      <Footer title="Workerbee" /*description="Something here to give the footer a purpose!"*/ />
     </React.Fragment>
   );
 }
