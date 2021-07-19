@@ -1,14 +1,15 @@
 // import logo from './logo.svg';
 import React from "react";
-import HomePage from './pages/home.js'
+// import HomePage from './pages/home.js'
 import Account from './pages/account.js'
 import SignInSide from './pages/SignInSide.js'
 import HomePage from './pages/HomePage.js'
 import SignUpSide from './pages/SignUpSide.js'
 import NewJob from './pages/NewJob.js'
 import Blog from './pages/Blog.js'
-import Confirmation from './pages/Confirmation.js'
+import Confirmation from './pages/confirmation.js'
 import Details from './pages/Details.js'
+import AppBar from './components/AppBar'
 
 
 // import './App.css';
@@ -18,7 +19,11 @@ function App() {
   return (
     <Router>
       <div>
+        
+        <Route exact path={[ "/home", "/account", "/newjob", "/job"  ]} component={AppBar} />
+        
         <Switch>
+          
           <Route exact path="/" component={SignInSide} />
           <Route exact path="/home" component={HomePage} />
           <Route exact path="/signup" component={SignUpSide} />
