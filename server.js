@@ -1,6 +1,7 @@
 const express = require("express");
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
+const nodemailer = require('nodemailer');
 
 const mongoose = require("mongoose");
 const routes = require("./routes");
@@ -28,14 +29,14 @@ mongoose.connect(
   }
 );
 
-// Add express-session and store as Express.js middleware
-app.use(session({
-  store: MongoStore.create({ mongoUrl: 'mongodb://localhost/FinalProjectDB' }),
-  secret: 'super secret secret',
-  name: {},
-  resave: false,
-  saveUninitialized: true
-}));
+// // Add express-session and store as Express.js middleware
+// app.use(session({
+//   store: MongoStore.create({ mongoUrl: 'mongodb://localhost/FinalProjectDB' }),
+//   secret: 'super secret secret',
+//   name: {},
+//   resave: false,
+//   saveUninitialized: true
+// }));
 
 // Start the API server
 app.listen(PORT, () =>
