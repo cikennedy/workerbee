@@ -7,7 +7,7 @@ import HomePage from './pages/HomePage.js'
 import SignUpSide from './pages/SignUpSide.js'
 import NewJob from './pages/NewJob.js'
 import Blog from './pages/Blog.js'
-import Confirmation from './pages/confirmation.js'
+import Confirmation from './pages/Confirmation.js'
 import Details from './pages/Details.js'
 import AppBar from './components/AppBar'
 
