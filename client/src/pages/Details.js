@@ -192,7 +192,7 @@ export default function Details(props) {
                     <Typography gutterBottom variant="h5" component="h2">
                       {job.pay}
                     </Typography>
-                    <Button href={"/confirmation/" + job._id} size="small" color="primary">
+                    <Button href={"/Confirmation/" + job._id} size="small" color="primary">
                       Apply
                     </Button>
 

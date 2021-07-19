@@ -16,6 +16,7 @@ import Link from '@material-ui/core/Link';
 import AllJobs from "../components/Jobs"
 import API from "../utils/API";
 import axios from "axios";
+const nodemailer = require('nodemailer');
 
 function Copyright() {
   return (
@@ -143,7 +144,7 @@ export default function HomePage() {
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justifyContent="center">
                 <Grid item>
-                  <Button href="/newjob" variant="contained" color="primary">
+                  <Button href="/Newjob" variant="contained" color="primary">
                   Post a Job
                   </Button>
                 </Grid>
@@ -182,10 +183,10 @@ export default function HomePage() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button href={"/details/" + card._id} size="small" color="primary">
+                    <Button href={"/Details/" + card._id} size="small" color="primary">
                       Details
                     </Button>
-                    <Button href={"/confirmation/" + card._id} size="small" color="primary">
+                    <Button href={"/Confirmation/" + card._id} size="small" color="primary">
                       Apply
                     </Button>
                   </CardActions>
