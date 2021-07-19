@@ -190,10 +190,10 @@ export default function HomePage() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button href={"/Details/" + card._id} size="small" color="primary">
+                    <Button href={"/details/" + card._id} size="small" color="primary">
                       Details
                     </Button>
-                    <Button href={"/Confirmation/" + card._id} size="small" color="primary">
+                    <Button href={"/confirmation/" + card._id} size="small" color="primary">
                       Apply
                     </Button>
                   </CardActions>
