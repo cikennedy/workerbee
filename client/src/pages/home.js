@@ -17,6 +17,13 @@ import AllJobs from "../components/Jobs"
 import API from "../utils/API";
 import axios from "axios";
 
+
+// const useStyles = makeStyles(theme => ({
+//   offset: theme.mixins.toolbar,
+// }))
+
+
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">

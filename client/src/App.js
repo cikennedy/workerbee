@@ -1,22 +1,24 @@
 // import logo from './logo.svg';
 import React from "react";
+import HomePage from './pages/home.js'
 import Account from './pages/account.js'
 import SignInSide from './pages/signin.js'
-import HomePage from './pages/home.js'
 import SignUp from './pages/signup.js'
 import NewJob from './pages/jobPosting.js'
 import Blog from './pages/Blog.js'
 import Confirmation from './pages/confirmation'
+import Navbar from './components/AppBar.js'
 
 
 // import './App.css';
+
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 function App() {
   return (
     <Router>
       <div>
-        {/* <Navbar /> */}
+          <Route exact path={[ "/account", "/home", "/confirmation", "/newjob" ]} component={Navbar} /> 
           <Route exact path="/" component={SignInSide} />
           <Route exact path="/home" component={HomePage} />
           <Route exact path="/signup" component={SignUp} />
