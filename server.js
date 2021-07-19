@@ -28,14 +28,14 @@ mongoose.connect(
   }
 );
 
-// Add express-session and store as Express.js middleware
-app.use(session({
-  store: MongoStore.create({ mongoUrl: 'mongodb://localhost/FinalProjectDB' }),
-  secret: 'super secret secret',
-  name: {},
-  resave: false,
-  saveUninitialized: true
-}));
+// // Add express-session and store as Express.js middleware
+// app.use(session({
+//   store: MongoStore.create({ mongoUrl: 'mongodb://localhost/FinalProjectDB' }),
+//   secret: 'super secret secret',
+//   name: {},
+//   resave: false,
+//   saveUninitialized: true
+// }));
 
 // Start the API server
 app.listen(PORT, () =>
