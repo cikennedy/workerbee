@@ -172,13 +172,13 @@ export default function HomePage() {
                       {card.job_title}
                     </Typography>
                     <Typography gutterBottom variant="h5" component="h2">
-                      {card.category}
+                      Category: {card.category}
                     </Typography>
                     <Typography gutterBottom variant="h5" component="h2">
-                      {card.address}
+                      Address: {card.address}
                     </Typography>
                     <Typography gutterBottom variant="h5" component="h2">
-                      {card.pay}
+                      ${card.pay}
                     </Typography>
                   </CardContent>
                   <CardActions>
