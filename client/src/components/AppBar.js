@@ -2,6 +2,8 @@ import React from 'react';
 import { alpha, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import { Link } from 'react-router-dom'
+import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
@@ -104,6 +106,10 @@ export default function PrimarySearchAppBar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+
+  // <Button component={Link} to="/home"> Link </Button>
+
+
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
@@ -115,8 +121,9 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      
+      <MenuItem onClick={handleMenuClose}><Button component={Link} to="/newjob"> New Job </Button></MenuItem>
+      <MenuItem onClick={handleMenuClose}><Button component={Link} to="/account"> Account </Button></MenuItem>
     </Menu>
   );
 
@@ -131,22 +138,23 @@ export default function PrimarySearchAppBar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
+      {/* <MenuItem>
+        <IconButton aria-label="Email" color="inherit">
           <Badge badgeContent={4} color="secondary">
-            <MailIcon />
+             <MailIcon />
           </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
+          {/* <Button component={Link} to="/newjob"></Button> */}
+        {/* </IconButton> */}
+        {/* <p>Email</p> */}
+      {/* </MenuItem> */}
+      {/* <MenuItem>
         <IconButton aria-label="show 11 new notifications" color="inherit">
           <Badge badgeContent={11} color="secondary">
             <NotificationsIcon />
           </Badge>
         </IconButton>
         <p>Notifications</p>
-      </MenuItem>
+      </MenuItem> */}
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           aria-label="account of current user"
@@ -172,11 +180,11 @@ export default function PrimarySearchAppBar() {
             aria-label="open drawer"
           >
             <MenuIcon />
+          <Button component={Link} to="/home"> Home </Button>
+          <Button component={Link} to="/account"> Account </Button>
+          <Button component={Link} to="/newjob"> New Job </Button>
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Material-UI
-          </Typography>
-          <div className={classes.search}>
+          {/* <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
@@ -188,10 +196,13 @@ export default function PrimarySearchAppBar() {
               }}
               inputProps={{ 'aria-label': 'search' }}
             />
-          </div>
+          </div> */}
+          <Typography className={classes.title} variant="h6" noWrap>
+            #1 Workerbee App
+          </Typography>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new mails" color="inherit">
+            {/* <IconButton aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="secondary">
                 <MailIcon />
               </Badge>
@@ -200,7 +211,7 @@ export default function PrimarySearchAppBar() {
               <Badge badgeContent={17} color="secondary">
                 <NotificationsIcon />
               </Badge>
-            </IconButton>
+            </IconButton> */}
             <IconButton
               edge="end"
               aria-label="account of current user"
