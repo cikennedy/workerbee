@@ -10,6 +10,7 @@ import Blog from './pages/Blog.js'
 import Confirmation from './pages/Confirmation.js'
 import Details from './pages/Details.js'
 import AppBar from './components/AppBar'
+import Footer from './components/Footer'
 
 
 // import './App.css';
@@ -22,18 +23,21 @@ function App() {
         <Route exact path={[ "/home", "/account", "/newjob", "/job", "/confirmation"  ]} component={AppBar} />
         <Switch>
           <Route exact path="/" component={SignInSide} />
-          <Route exact path="/home" component={HomePage} />
           <Route exact path="/signup" component={SignUpSide} />
+          <Route exact path="/home" component={HomePage} />
+          <Route exact path="/account" component={Account} />          
           <Route exact path="/newjob" component={NewJob} />
           {/* <Route exact path="/job" component={Blog} /> */}
-          <Route exact path="/account" component={Account} />
           <Route exact path="/confirmation" component={Confirmation} />
           <Route exact path="/details/:id" component={Details} />
           </Switch>
           {/* <Route path="/details/:_id" component={Details} /> */}
          {/* <Footer /> */}
       </div>
-    </Router>
+
+      <Route exact path={[ "/home", "/account", "/newjob", "/confirmation"  ]} component={Footer} />
+
+     </Router>
   );
 }
 
