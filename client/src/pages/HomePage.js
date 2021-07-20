@@ -91,7 +91,6 @@ const cards = [
   }
 ];
 
-
 export default function HomePage() {
   const classes = useStyles();
 
@@ -113,7 +112,6 @@ export default function HomePage() {
     .catch(err => console.log(err));
   }
 
-
   // useEffect(() => {
   //   axios.get('/api/jobs')
   //   .then(res => {
@@ -125,8 +123,6 @@ export default function HomePage() {
   //   API.getBooks()
   // })
   
-
-
   return (
     <React.Fragment>
       <CssBaseline />

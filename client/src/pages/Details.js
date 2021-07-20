@@ -8,31 +8,15 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
+// import Link from '@material-ui/core/Link';
 // import AllJobs from "../components/Jobs"
-import GitHubIcon from '@material-ui/icons/GitHub';
-import FacebookIcon from '@material-ui/icons/Facebook';
-import TwitterIcon from '@material-ui/icons/Twitter';
 // import MainFeaturedPost from '../components/MainFeaturedPost';
 // import Main from '../components/Main';
 // import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
-// import API from "../utils/API";
+import API from "../utils/API";
 import axios from "axios";
 
-
-// function Copyright() {
-//   return (
-//     <Typography variant="body2" color="textSecondary" align="center">
-//       {'Copyright © '}
-//       <Link color="inherit" href="https://github.com/cikennedy/job-hunter">
-//       Workerbee
-//       </Link>{' '}
-//       {new Date().getFullYear()}
-//       {'.'}
-//     </Typography>
-//   );
-// }
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -90,29 +74,6 @@ const cards = [
   }
 ];
 
-const sidebar = {
-  title: 'Posted by:',
-  description:
-    'First Last, Location',
-  archives: [
-    { title: 'February 2020', url: '#' },
-    { title: 'January 2020', url: '#' },
-    { title: 'November 1999', url: '#' },
-    { title: 'October 1999', url: '#' },
-    { title: 'September 1999', url: '#' },
-    { title: 'August 1999', url: '#' },
-    { title: 'July 1999', url: '#' },
-    { title: 'June 1999', url: '#' },
-    { title: 'May 1999', url: '#' },
-    { title: 'April 1999', url: '#' },
-  ],
-  social: [
-    { name: 'GitHub', icon: GitHubIcon },
-    { name: 'Twitter', icon: TwitterIcon },
-    { name: 'Facebook', icon: FacebookIcon },
-  ],
-};
-
 export default function Details(props) {
   const classes = useStyles();
 
@@ -136,11 +97,9 @@ export default function Details(props) {
 
   const {id} = useParams()
   useEffect(() => {
-    // API.getJob(id)
-    axios.get("/api/jobs/" + id)
+    // API.getJob()
+    axios.get(`/api/jobs/${id}`)
       .then(res => {
-        console.log(res)
-        console.log(data)
         setJob(res.data)
       })
       
