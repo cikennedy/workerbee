@@ -98,13 +98,18 @@ export default function Details(props) {
   const {id} = useParams()
   useEffect(() => {
     // API.getJob()
-    axios.get(`/api/jobs/${id}`)
-      .then(res => {
-        setJob(res.data)
+    axios.get("/api/jobs/" + id)
+      .then((res) => {
+        const singleJobData = res.data;
+        setJob(() => singleJobData);
       })
-      
       .catch(err => console.log(err));
-  }, [])
+    }, []);
+  //       const singleJobData = res.data;
+  //       setJob(() => singleJobData))
+  //     })
+  //     .catch(err => console.log(err));
+  // }, [])
   
 
   // useEffect(() => {
