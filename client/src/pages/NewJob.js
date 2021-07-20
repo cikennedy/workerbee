@@ -3,8 +3,8 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+// import FormControlLabel from '@material-ui/core/FormControlLabel';
+// import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -12,6 +12,10 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+// import DropDown  from '../components/DropDown';
+import Select from 'react-dropdown-select';
+
+
 
 function Copyright() {
   return (
@@ -46,14 +50,45 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const Categories = [
+  { label: "Lawn Care", value: "Lawn Care" },
+  { label: "Auto Care", value: "Auto Care" },
+  { label: "Moving Help", value: "Moving Help" }
+];
+
 function NewJob() {
   const [formObject, setFormObject] = useState({})
   const classes = useStyles();
 
   function handleInputChange(event) {
+    // event.preventDefault();
     const { name, value } = event.target;
     setFormObject({...formObject, [name]: value})
   };
+
+  const test = (e) => {
+    console.log(e);
+    let value = e[0]["value"];
+    // console.log(value)
+    setFormObject({...formObject, ["category"]: value})
+  }
+
+  // const [addrtype, setAddrtype] = useState(["Work", "Home", "school"])
+  // const Add = addrtype.map(Add => Add
+  // )
+  // const handleAddrTypeChange = (e) => {console.clear(), console.log((addrtype[e.target.text]))}
+  // const 
+
+  // state = {
+  //   selectedOption: null,
+  // }
+  // handleChange = (selectedOption) => {
+  //   this.setState({ selectedOption });
+  //   console.log(`Option selected:`, selectedOption);
+  // }
+  // render(){
+  //   const { selectedOption } = this.state;
+  // }
 
   async function handleFormSubmit(event) {
     event.preventDefault();
@@ -65,10 +100,12 @@ function NewJob() {
     const email = formObject.email;
     const duration = formObject.duration;
     const pay = formObject.pay;
-
+console.log(category)
+console.log(formObject)
     if ( job_title && category && description && address && phone && email
       && duration && pay ) {
-      const response = await fetch('/api/jobs', {
+      console.log("inside if")
+        const response = await fetch('/api/jobs', {
         method: 'POST',
         body: JSON.stringify({
           job_title,
@@ -118,7 +155,12 @@ function NewJob() {
               />
             </Grid>
             <Grid item xs={12}>
-              <TextField
+            <Select
+            label="Category"
+            onChange={(e) => test(e)}
+            options={Categories}
+            />
+              {/* <TextField
                 variant="outlined"
                 required
                 fullWidth
@@ -127,7 +169,7 @@ function NewJob() {
                 name="category"
                 autoComplete="category"
                 onChange={handleInputChange}
-              />
+              /> */}
             </Grid>
             <Grid item xs={12}>
               <TextField
