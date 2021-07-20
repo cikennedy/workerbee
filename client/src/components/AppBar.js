@@ -182,7 +182,6 @@ export default function PrimarySearchAppBar() {
           <Button component={Link} to="/home"> Home </Button>
           <Button component={Link} to="/account"> Account </Button>
           <Button component={Link} to="/newjob"> New Job </Button>
-          <Button component={Link} to="/job"> Jobs </Button>
 
           <div className={classes.search}>
             <div className={classes.searchIcon}>
