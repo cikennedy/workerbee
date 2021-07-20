@@ -176,16 +176,16 @@ export default function HomePage() {
                     title="Car Wash"
                   /> */}
                   <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography variant="h6" color="inherit">
                       {card.job_title}
                     </Typography>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography variant="h6" color="inherit">
                       Category: {card.category}
                     </Typography>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography variant="h6" color="inherit">
                       Address: {card.address}
                     </Typography>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography variant="h6" color="inherit">
                       ${card.pay}
                     </Typography>
                   </CardContent>
