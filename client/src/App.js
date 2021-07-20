@@ -19,11 +19,8 @@ function App() {
   return (
     <Router>
       <div>
-        
         <Route exact path={[ "/home", "/account", "/newjob", "/job"  ]} component={AppBar} />
-        
         <Switch>
-          
           <Route exact path="/" component={SignInSide} />
           <Route exact path="/home" component={HomePage} />
           <Route exact path="/signup" component={SignUpSide} />
