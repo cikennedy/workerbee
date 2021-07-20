@@ -138,7 +138,11 @@ export default function Details(props) {
   useEffect(() => {
     // API.getJob(id)
     axios.get("/api/jobs/" + id)
-      .then(res => setJob(res.data))
+      .then(res => {
+        console.log(res)
+        setJob(res.data)
+      })
+      
       .catch(err => console.log(err));
   }, [])
   
