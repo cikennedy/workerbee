@@ -8,6 +8,8 @@ const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+
+
 // Define middleware here
 // Configure body parsing for AJAX requests
 app.use(express.urlencoded({ extended: true }));
