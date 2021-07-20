@@ -176,16 +176,16 @@ export default function HomePage() {
                     title="Car Wash"
                   /> */}
                   <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography variant="h6" color="inherit">
                       {card.job_title}
                     </Typography>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography variant="h6" color="inherit">
                       Category: {card.category}
                     </Typography>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography variant="h6" color="inherit">
                       Address: {card.address}
                     </Typography>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography variant="h6" color="inherit">
                       ${card.pay}
                     </Typography>
                   </CardContent>
@@ -205,12 +205,12 @@ export default function HomePage() {
       </main>
       {/* Footer */}
       <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
+        {/* <Typography variant="h6" align="center" gutterBottom>
           Footer
         </Typography>
         <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
           Something here to give the footer a purpose!
-        </Typography>
+        </Typography> */}
         <Copyright />
       </footer>
       {/* End footer */}
