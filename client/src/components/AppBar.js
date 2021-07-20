@@ -2,6 +2,8 @@ import React from 'react';
 import { alpha, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import { Link } from 'react-router-dom'
+import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
@@ -104,6 +106,10 @@ export default function PrimarySearchAppBar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+
+  // <Button component={Link} to="/home"> Link </Button>
+
+
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
@@ -165,17 +171,19 @@ export default function PrimarySearchAppBar() {
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
+          {/* <IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
           >
             <MenuIcon />
-          </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Material-UI
-          </Typography>
+          </IconButton> */}
+          <Button component={Link} to="/home"> Home </Button>
+          <Button component={Link} to="/account"> Account </Button>
+          <Button component={Link} to="/newjob"> New Job </Button>
+          <Button component={Link} to="/job"> Jobs </Button>
+
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -189,6 +197,9 @@ export default function PrimarySearchAppBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
+          <Typography className={classes.title} variant="h6" noWrap>
+            #1 Workerbee App
+          </Typography>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <IconButton aria-label="show 4 new mails" color="inherit">
