@@ -140,6 +140,7 @@ export default function Details(props) {
     axios.get("/api/jobs/" + id)
       .then(res => {
         console.log(res)
+        console.log(data)
         setJob(res.data)
       })
       
