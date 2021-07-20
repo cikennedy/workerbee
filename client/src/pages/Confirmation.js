@@ -10,10 +10,19 @@ function Confirmation() {
             <section id="contact" className="contact">
                 <div className="container" >
                     <div className="section-title">
-                        <h2>Signup & Login Confirmation</h2>
+                        <h2>Job Confirmation</h2>
                     </div>
 
-                    <div className="row mt-1">
+
+                    <div className="section-title">
+                        <h2>You successfully signed up for the job!
+                        </h2>
+                        <h3>An email confirmation has been sent to your contact.
+                        </h3>
+                    </div>
+
+
+                    {/* <div className="row mt-1">
 
                         <div className="col-lg-12 mt-5 mt-lg-0">
                             <form action="forms/contact.php" method="post" role="form" className="php-email-form">
@@ -43,7 +52,7 @@ function Confirmation() {
                                 <div className="text-center"><button type="submit">Return to Login</button></div>
                             </form>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </section>
         </main>

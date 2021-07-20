@@ -19,13 +19,13 @@ function App() {
   return (
     <Router>
       <div>
-        <Route exact path={[ "/home", "/account", "/newjob", "/job"  ]} component={AppBar} />
+        <Route exact path={[ "/home", "/account", "/newjob", "/job", "/confirmation"  ]} component={AppBar} />
         <Switch>
           <Route exact path="/" component={SignInSide} />
           <Route exact path="/home" component={HomePage} />
           <Route exact path="/signup" component={SignUpSide} />
           <Route exact path="/newjob" component={NewJob} />
-          <Route exact path="/job" component={Blog} />
+          {/* <Route exact path="/job" component={Blog} /> */}
           <Route exact path="/account" component={Account} />
           <Route exact path="/confirmation" component={Confirmation} />
           <Route exact path="/details/:id" component={Details} />
