@@ -104,9 +104,6 @@ export default function HomePage() {
     axios.get('/api/jobs')
     .then((res) => {
       const allJobData = res.data;
-      console.log('Hello'
-      );
-      console.log(allJobData);
       getJobs(() => allJobData);
     })
     .catch(err => console.log(err));

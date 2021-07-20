@@ -198,7 +198,7 @@ export default function PrimarySearchAppBar() {
             />
           </div> */}
           <Typography className={classes.title} variant="h6" noWrap>
-            #1 Workerbee App
+            Workerbee
           </Typography>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
