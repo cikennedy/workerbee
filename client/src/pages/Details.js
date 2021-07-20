@@ -135,31 +135,31 @@ export default function Details(props) {
                     </Typography>
 
                     <Typography gutterBottom variant="h5" component="h2">
-                      {job.category}
+                      Category: {job.category}
                     </Typography>
 
                     <Typography gutterBottom variant="h5" component="h2">
-                      {job.description}
+                      Description: {job.description}
                     </Typography>
 
                     <Typography gutterBottom variant="h5" component="h2">
-                      {job.address}
+                      Address: {job.address}
                     </Typography>
 
                     <Typography gutterBottom variant="h5" component="h2">
-                      {job.phone}
+                      Phone#: {job.phone}
                     </Typography>
 
                     <Typography gutterBottom variant="h5" component="h2">
-                      {job.email}
+                      Email: {job.email}
                     </Typography>
 
                     <Typography gutterBottom variant="h5" component="h2">
-                      {job.duration}
+                      Est. Duration: {job.duration}
                     </Typography>
                     
                     <Typography gutterBottom variant="h5" component="h2">
-                      {job.pay}
+                      Pay: ${job.pay}
                     </Typography>
                     <Button href={"/Confirmation/" + job._id} size="small" color="primary">
                       Apply
