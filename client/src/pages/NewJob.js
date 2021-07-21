@@ -238,7 +238,7 @@ console.log(formObject)
                 required
                 fullWidth
                 name="pay"
-                label="Pay"
+                label="Pay (USD)"
                 type="pay"
                 id="pay"
                 autoComplete="pay"
@@ -251,7 +251,7 @@ console.log(formObject)
                 required
                 fullWidth
                 name="date"
-                label="Date"
+                label=""
                 type="date"
                 id="date"
                 autoComplete="date"
