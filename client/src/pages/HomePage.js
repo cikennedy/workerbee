@@ -16,27 +16,6 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import nodemailer from 'nodemailer';
 // const nodemailer = require('nodemailer');
-import MapContainer from '../components/MapContainer';
-
-
-// const useStyles = makeStyles(theme => ({
-//   offset: theme.mixins.toolbar,
-// }))
-
-
-
-// function Copyright() {
-//   return (
-//     <Typography variant="body2" color="textSecondary" align="center">
-//       {'Copyright © '}
-//       <Link color="inherit" href="https://github.com/cikennedy/job-hunter">
-//       Workerbee
-//       </Link>{' '}
-//       {new Date().getFullYear()}
-//       {'.'}
-//     </Typography>
-//   );
-// }
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -126,46 +105,7 @@ export default function HomePage() {
 
   }
 
-  // useEffect(() => {
-  //   axios.get('/api/jobs')
-  //   .then(res => {
-  //     setJobs([...jobs, res.data]);
-  //     console.log(jobs);
-  //   })
-  // })
-  // useEffect(() => {
-  //   API.getBooks()
-  // })
-
   function mailer(email) {
-    console.log('JOB POSTER EMAIL', email)
-    // let transporter = nodemailer.createTransport({
-    //   host: "smtp.gmail.com",
-    //   port: 587,
-    //   secure: false, // true for 465, false for other ports
-    //   auth: {
-    //       user: 'workerbeeproject@gmail.com',
-    //       pass: 'Workerbee2021!',
-    //   },
-    //   });
-    
-    //   // send mail with defined transport object
-    // let info =  transporter.sendMail({
-    //   from: '"Workerbee" <workerbeeproject@gmail.com>', // sender address
-    //   to: "workerbeeproject@gmail.com", // list of receivers
-    //   subject: "workerbee - Someone has applied to your poster job!", // Subject line
-    //   text: "Job Applied", // plain text body
-    //   html: "HTML BODY MESSAGE", // html body
-    //   });
-    
-      // console.log("Message sent: %s", info.messageId);
-      // console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-
-
-
-
-      // axiso call smack the route that has mailer stuff in it
-      // in the .thn of axios call do history.push("/confirmation")
 
       var data = {
           from: '"Workerbee" <workerbeeproject@gmail.com>', // sender address
@@ -182,14 +122,6 @@ export default function HomePage() {
   return (
     <React.Fragment>
       <CssBaseline />
-      {/* <AppBar position="relative">
-        <Toolbar>
-          <CameraIcon className={classes.icon} />
-          <Typography variant="h6" color="inherit" noWrap>
-            Album layout
-          </Typography>
-        </Toolbar>
-      </AppBar> */}
       <main>
         {/* Hero unit */}
         <div className={classes.heroContent}>
@@ -208,11 +140,6 @@ export default function HomePage() {
                   Post a Job
                   </Button>
                 </Grid>
-                {/* <Grid item>
-                  <Button variant="outlined" color="primary">
-                    Sort by
-                  </Button>
-                </Grid> */}
               </Grid>
             </div>
           </Container>
@@ -226,7 +153,6 @@ export default function HomePage() {
                   <CardMedia
                     className={classes.cardMedia}
                     image={imagePicker(card.category)}
-                    // title="Car Wash"
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography variant="h6" color="inherit">
@@ -256,17 +182,7 @@ export default function HomePage() {
           </Grid>
         </Container>
       </main>
-      {/* Footer
-      <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
-          Footer
-        </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          Something here to give the footer a purpose!
-        </Typography>
-        <Copyright />
-      </footer>
-      End footer */}
+
     </React.Fragment>
   );
 }
