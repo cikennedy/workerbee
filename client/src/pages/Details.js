@@ -13,6 +13,7 @@ import Container from '@material-ui/core/Container';
 // import MainFeaturedPost from '../components/MainFeaturedPost';
 // import Main from '../components/Main';
 // import Sidebar from '../components/Sidebar';
+import { useHistory } from "react-router-dom";
 import Footer from '../components/Footer';
 import API from "../utils/API";
 import axios from "axios";
@@ -76,8 +77,13 @@ const cards = [
 
 export default function Details(props) {
   const classes = useStyles();
+  const history = useHistory();
 
   const [job, setJob] = useState({});
+
+  const handleClick = (route) => {
+    history.push(route);
+  }
 
   // useEffect(() => { 
   //   getDetails();
@@ -162,7 +168,7 @@ export default function Details(props) {
                     <Typography gutterBottom variant="h5" component="h2">
                       Pay: ${job.pay}
                     </Typography>
-                    <Button href={"/Confirmation/" + job._id} size="small" color="primary">
+                    <Button onClick={() => {handleClick("/confirmation/" + job._id)}} size="small" color="primary">
                       Apply
                     </Button>
 

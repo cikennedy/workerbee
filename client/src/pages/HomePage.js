@@ -150,7 +150,8 @@ export default function HomePage() {
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justifyContent="center">
                 <Grid item>
-                  <Button href="/Newjob" variant="contained" color="primary">
+                  <Button 
+                  onClick={() => {handleClick("/newjob")}} variant="contained" color="primary">
                   Post a Job
                   </Button>
                 </Grid>
@@ -192,7 +193,7 @@ export default function HomePage() {
                     <Button onClick={() => {handleClick("/details/" + card._id)}} size="small" color="primary">
                       Details
                     </Button>
-                    <Button href={"/confirmation/" + card._id} size="small" color="primary">
+                    <Button onClick={() => {handleClick("/confirmation/" + card._id)}} size="small" color="primary">
                       Apply
                     </Button>
                   </CardActions>
