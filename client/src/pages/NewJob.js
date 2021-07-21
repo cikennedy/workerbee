@@ -3,32 +3,14 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-// import FormControlLabel from '@material-ui/core/FormControlLabel';
-// import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-// import DropDown  from '../components/DropDown';
 import Select from 'react-dropdown-select';
-
-
-
-// function Copyright() {
-//   return (
-//     <Typography variant="body2" color="textSecondary" align="center">
-//       {'Copyright © '}
-//       <Link color="inherit" href="https://github.com/cikennedy/job-hunter">
-//       Workerbee
-//       </Link>{' '}
-//       {new Date().getFullYear()}
-//       {'.'}
-//     </Typography>
-//   );
-// }
+import axios from 'axios';
+import { rest } from 'lodash';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -67,28 +49,9 @@ function NewJob() {
   };
 
   const test = (e) => {
-    console.log(e);
     let value = e[0]["value"];
-    // console.log(value)
     setFormObject({...formObject, ["category"]: value})
   }
-
-  // const [addrtype, setAddrtype] = useState(["Work", "Home", "school"])
-  // const Add = addrtype.map(Add => Add
-  // )
-  // const handleAddrTypeChange = (e) => {console.clear(), console.log((addrtype[e.target.text]))}
-  // const 
-
-  // state = {
-  //   selectedOption: null,
-  // }
-  // handleChange = (selectedOption) => {
-  //   this.setState({ selectedOption });
-  //   console.log(`Option selected:`, selectedOption);
-  // }
-  // render(){
-  //   const { selectedOption } = this.state;
-  // }
 
   async function handleFormSubmit(event) {
     event.preventDefault();
@@ -100,11 +63,8 @@ function NewJob() {
     const email = formObject.email;
     const duration = formObject.duration;
     const pay = formObject.pay;
-console.log(category)
-console.log(formObject)
     if ( job_title && category && description && address && phone && email
       && duration && pay ) {
-      console.log("inside if")
         const response = await fetch('/api/jobs', {
         method: 'POST',
         body: JSON.stringify({
@@ -120,7 +80,7 @@ console.log(formObject)
         headers: { 'Content-Type': 'application/json' },
       });
     if (response.ok) {
-      console.log('Job Posted.')
+      alert("Job Posted");
       document.location.replace(`/home`);
       // Replace the above code with below once the route is working
       // document.location.replace(`/jobs/${job_id}`);
@@ -204,6 +164,7 @@ console.log(formObject)
                 id="phone"
                 label="Phone"
                 name="phone"
+                type="phone"
                 autoComplete="phone"
                 onChange={handleInputChange}
               />
@@ -261,7 +222,7 @@ console.log(formObject)
           </Grid>
           <Button
             // type="submit"
-            onClick={handleFormSubmit}
+            onClick={saveJob}
             fullWidth
             variant="contained"
             color="primary"
