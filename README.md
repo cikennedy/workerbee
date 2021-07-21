@@ -30,6 +30,12 @@ The GitHub repository can be found at the following link: [GitHub Repository](ht
 
 The deployed application on Herkou can be found at the following link: [Heroku Deployment](https://workerbeeapp.herokuapp.com/).
 
+![Sign In Page](./assets/SignIn.png)
+
+![Job Posting Form](./assets/JobPostForm.png)
+
+![Jobs List](./assets/Jobs.png)
+
 ## Credits
 
 Other projects and work by the project creators are featured at the below GitHub profiles:

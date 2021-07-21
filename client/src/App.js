@@ -20,7 +20,7 @@ function App() {
   return (
     <Router>
       <div>
-        <Route exact path={[ "/home", "/account", "/newjob", "/job", "/confirmation"  ]} component={AppBar} />
+        <Route exact path={[ "/home", "/account", "/newjob", "/job", "/confirmation" ]} component={AppBar} />
         <Switch>
           <Route exact path="/" component={SignInSide} />
           <Route exact path="/signup" component={SignUpSide} />

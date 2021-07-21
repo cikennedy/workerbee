@@ -24,7 +24,7 @@ class Map extends Component {
     };
   }
 
-  getMarkers = () => {
+  getMarker = () => {
     axios
       .get("/api/jobs")
       .then((res) =>
@@ -48,7 +48,7 @@ class Map extends Component {
     Geocode.setRegion("us");
 
     // Get latitude & longitude from address
-    Geocode.fromAddress(this.state.address, i) .then(
+    Geocode.fromAddress(this.state.address) .then(
       (response) => {
         const { lat, lng } = response.results[0].geometry.location;
         console.log(lat, lng);

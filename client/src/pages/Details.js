@@ -9,6 +9,7 @@ import Container from "@material-ui/core/Container";
 import { useHistory } from "react-router-dom";
 import Footer from "../components/Footer";
 import axios from "axios";
+// import MapContainer from "../components/MapContainer"
 import nodemailer from "nodemailer";
 import { green } from "@material-ui/core/colors";
 
@@ -91,13 +92,13 @@ export default function Details(props) {
       <Container maxWidth="lg">
         {/* <Header title="Blog" sections={sections} /> */}
         <main>
-          <div
+          {/* <div
             style={{
               paddingTop: "50px",
             }}
           >
             <MapContainer />
-          </div>
+          </div> */}
           {/* <MainFeaturedPost> */}
           <Typography
             className={classes.heroContent}
