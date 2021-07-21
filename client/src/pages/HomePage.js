@@ -17,7 +17,9 @@ import AllJobs from "../components/Jobs"
 import API from "../utils/API";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-const nodemailer = require('nodemailer');
+import nodemailer from 'nodemailer';
+// const nodemailer = require('nodemailer');
+import MapContainer from '../components/MapContainer';
 
 
 // const useStyles = makeStyles(theme => ({
@@ -213,6 +215,10 @@ export default function HomePage() {
               </Grid>
             ))}
           </Grid>
+          <div   style={{
+    paddingTop: '50px'}}>
+          <MapContainer />
+          </div>
         </Container>
       </main>
       {/* Footer
