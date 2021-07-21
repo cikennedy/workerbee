@@ -73,8 +73,6 @@ export default function Details(props) {
 
   function mailer(email) {
     
-
-
     var data = {
       from: '"Workerbee" <workerbeeproject@gmail.com>', // sender address
       to: email, // list of receivers
@@ -135,24 +133,12 @@ export default function Details(props) {
                       Return to Home
                     </Button>
 
-          {/* </MainFeaturedPost> */}
-          {/* <Grid container spacing={4}>
-            {featuredPosts.map((post) => (
-              <FeaturedPost key={post.title} post={post} />
-            ))}
-          </Grid> */}
           <Grid container spacing={5} className={classes.mainGrid}>
-            {/* <Main title="About the job" posts={posts} />
-            <Sidebar
-              title={sidebar.title}
-              description={sidebar.description}
-              archives={sidebar.archives}
-              social={sidebar.social}
-            /> */}
+
           </Grid>
         </main>
       </Container>
-      <Footer title="Workerbee" /*description="Something here to give the footer a purpose!"*/ />
+      <Footer title="Workerbee" />
     </div>
   );
 }

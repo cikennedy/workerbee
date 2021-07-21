@@ -17,20 +17,20 @@ function Account() {
                 <div className="info">
                   <div className="address">
                     <i className="icofont-google-map"></i>
-                    <h4>Location:</h4>
-                    <p>127 N. Walnut St., Itasca, IL 60143 - USA</p>
+                    <h4></h4>
+                    <p></p>
                   </div>
   
                   <div className="email">
                     <i className="icofont-envelope"></i>
                     <h4>Email:</h4>
-                    <p><a href="mailto:tschmidt@eceglobal.com">tschmidt@eceglobal.com</a></p>
+                    <p><a></a></p>
                   </div>
   
                   <div className="phone">
                     <i className="icofont-phone"></i>
-                    <h4>Call:</h4>
-                    <p><a href="tel:+17735517786"></a>+1 773-551-7786</p>
+                    <h4>Phone</h4>
+                    <p><a></a></p>
                   </div>
                 </div>
               </div>
