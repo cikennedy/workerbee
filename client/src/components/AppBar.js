@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
   navItem: {
     color: 'white',
-
+    display: 'flex',
   },
   search: {
     position: 'relative',
