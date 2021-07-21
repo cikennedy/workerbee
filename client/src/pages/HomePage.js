@@ -117,11 +117,11 @@ export default function HomePage() {
 
   const imagePicker = (category) => {
 
-    if (category === 'Auto Care') {
+    if (category === "Auto Care") {
       return "https://i.imgur.com/WRvdAxT.jpg"
-    } else if(category === 'Lawn Care') {
+    } else if(category === "Lawn Care") {
       return "https://i.imgur.com/2uOxjai.jpg"
-    } else if (category === 'Moving Help') {
+    } else if (category === "Moving Help") {
       return "https://i.imgur.com/H2au5ID.jpg"
     }
 
@@ -184,8 +184,8 @@ export default function HomePage() {
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image={() => {imagePicker(card.category)}}
-                    title="Car Wash"
+                    image={imagePicker(card.category)}
+                    // title="Car Wash"
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography variant="h6" color="inherit">
