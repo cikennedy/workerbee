@@ -14,19 +14,20 @@ class Map extends Component {
     },
     zoom: 11,
   };
-
-  constructor(props) {
-    super(props);
-    this.state = {
+    state = {
       locations: [],
       showingInfoWindow: false,
       activeMarker: {},
     };
-  }
 
-  getMarker = () => {
+
+  getMarker = (id) => {
+    const location = this.state.locations.find(location => location.id === id)
     axios
-      .get("/api/jobs")
+      .get("/api/jobs" + id)({
+        job_title: location.job_title,
+        address: location.address
+      })
       .then((res) =>
         this.setState({
           locations: res.data,
@@ -41,22 +42,23 @@ class Map extends Component {
 
   componentDidMount = () => {
     // Google Geocoder
-    Geocode.setApiKey(API_KEY);
+    Geocode.setApiKey("AIzaSyCPhWnebKd5wNSgnlUres5WdKGQdwc1jS0");
     Geocode.setLanguage("en");
 
     // set this as US
     Geocode.setRegion("us");
 
     // Get latitude & longitude from address
-    Geocode.fromAddress(this.state.address) .then(
-      (response) => {
-        const { lat, lng } = response.results[0].geometry.location;
-        console.log(lat, lng);
-      },
-      (error) => {
-        console.error(error);
+    Geocode.fromAddress({ address: this.state.address} ), (results, status) => {
+      if (status === 'OK') {  
+        this.setState({
+          centerMarker: results[0].geometry.location,
+          markerName: results[0].formatted_address
+        });
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
       }
-    );
+    };
   };
 
   render() {
@@ -64,7 +66,7 @@ class Map extends Component {
       // Important! Always set the container height explicitly
       <div style={{ height: "100vh", width: "100%" }}>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: API_KEY }}
+          bootstrapURLKeys={{ key : "AIzaSyCPhWnebKd5wNSgnlUres5WdKGQdwc1jS0" }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
         >
@@ -73,8 +75,10 @@ class Map extends Component {
               <AnyReactComponent
                 item
                 key={location._id}
-                text={location.category}
-                lng={87.6298}
+                text={location.address}
+                position={this.state.centerMarker}
+                // onClick={this.onMarkerClick}
+                // name={this.state.markerName}
               />
             );
           })}
