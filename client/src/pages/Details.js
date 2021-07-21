@@ -18,6 +18,7 @@ import Footer from '../components/Footer';
 // import API from "../utils/API";
 import axios from "axios";
 import nodemailer from 'nodemailer';
+import { green } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -52,6 +53,9 @@ const useStyles = makeStyles((theme) => ({
   mainGrid: {
     marginTop: theme.spacing(3),
   },
+  homeBtn: {
+    marginLeft: theme.spacing(3),
+  }
 }));
 
 export default function Details(props) {
@@ -127,45 +131,49 @@ export default function Details(props) {
 
   return (
     <div>
-      <h1>Job Details</h1>
+      
       <CssBaseline />
       <Container maxWidth="lg">
         {/* <Header title="Blog" sections={sections} /> */}
         <main>
           {/* <MainFeaturedPost> */}
+            <Typography className={classes.heroContent} gutterBottom variant="h2" component="h2"> Job Details</Typography> 
             <Typography gutterBottom variant="h5" component="h2">
-                      {job.job_title}
+                      <strong>Job Title:</strong> {job.job_title}
                     </Typography>
 
                     <Typography gutterBottom variant="h5" component="h2">
-                      Category: {job.category}
+                      <strong>Category:</strong> {job.category}
                     </Typography>
 
                     <Typography gutterBottom variant="h5" component="h2">
-                      Description: {job.description}
+                      <strong>Description:</strong> {job.description}
                     </Typography>
 
                     <Typography gutterBottom variant="h5" component="h2">
-                      Address: {job.address}
+                      <strong>Address:</strong> {job.address}
                     </Typography>
 
                     <Typography gutterBottom variant="h5" component="h2">
-                      Phone#: {job.phone}
+                      <strong>Phone#:</strong> {job.phone}
                     </Typography>
 
                     <Typography gutterBottom variant="h5" component="h2">
-                      Email: {job.email}
+                      <strong>Email:</strong> {job.email}
                     </Typography>
 
                     <Typography gutterBottom variant="h5" component="h2">
-                      Est. Duration: {job.duration}
+                      <strong>Est. Duration:</strong> {job.duration}
                     </Typography>
                     
                     <Typography gutterBottom variant="h5" component="h2">
-                      Pay: ${job.pay}
+                      <strong>Pay:</strong> ${job.pay}
                     </Typography>
-                    <Button onClick={() => {mailer(job.email)}} size="small" color="primary">
+                    <Button variant="contained" onClick={() => {mailer(job.email)}} size="large" color="primary">
                       Apply
+                    </Button>
+                    <Button className={classes.homeBtn} variant="contained" size="large" color="default" margin-left="25px">
+                      Return to Home
                     </Button>
 
           {/* </MainFeaturedPost> */}
