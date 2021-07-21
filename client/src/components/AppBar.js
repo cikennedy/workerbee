@@ -217,9 +217,9 @@ export default function PrimarySearchAppBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div> */}
-          <Typography className={classes.title} variant="h6" align="center" noWrap>
+          {/* <Typography className={classes.title} variant="h6" align="center" noWrap>
             Workerbee
-          </Typography>
+          </Typography> */}
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             {/* <IconButton aria-label="show 4 new mails" color="inherit">
