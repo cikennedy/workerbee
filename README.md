@@ -1,84 +1,63 @@
 # Final Project
-  ![GitHub License](https://img.shields.io/badge/license-MIT-yellow.svg)
 
-  ## Description
+![GitHub License](https://img.shields.io/badge/license-MIT-yellow.svg)
 
-  Application for those with household jobs to be paired with work-hungry individuals.
+## Description
 
-  ## Table of Contents
+Application for those with household jobs to be paired with work-hungry individuals.
 
-  * [Installation](#installation)
+## Table of Contents
 
-  * [Usage](#usage)
+- [Installation](#installation)
 
-  * [Credits](#credits)
-  
-  * [License](#license)
+- [Usage](#usage)
 
-  * [Badges](#badges)
+- [Credits](#credits)
 
-  * [Features](#features)
+- [License](#license)
 
-  * [Contribution](#contribution)
+- [Badges](#badges)
 
-  * [Tests](#tests)
+- [Questions](#questions)
 
-  * [Questions](#questions)
+## Installation
 
-  ## Installation
+For this project to run properly, install the necessary dependencies by using the following terminal command: npm i
 
-  For this project to run properly, install the necessary dependencies by using the following terminal command: npm i
+## Usage
 
-  ## Usage
+The GitHub repository can be found at the following link: [GitHub Repository](https://github.com/cikennedy/workerbee).
 
-  N/A
+The deployed application on Herkou can be found at the following link: [Heroku Deployment](https://workerbeeapp.herokuapp.com/).
 
-  ## Credits
+## Credits
 
-  Other projects and work by the project creators are featured at the below GitHub profiles:
-  
-  * [Chris Kennedy](https://github.com/cikennedy)
+Other projects and work by the project creators are featured at the below GitHub profiles:
 
-  * [Kevin Jun](https://github.com/kjun290)
+- [Chris Kennedy](https://github.com/cikennedy)
 
-  * [John Hummel](https://github.com/johnhumms)
+- [Kevin Jun](https://github.com/kjun290)
 
-  * [Thomas Schmidt](https://github.com/Thomas-NW)
+- [John Hummel](https://github.com/johnhumms)
 
-  ## License
+- [Thomas Schmidt](https://github.com/Thomas-NW)
 
-  This project is licensed using the MIT license.
+## License
 
-  ## Badges
+This project is licensed using the MIT license.
 
-  ![GitHub License](https://img.shields.io/badge/license-MIT-yellow.svg)
+## Badges
 
-  ## Features
+![GitHub License](https://img.shields.io/badge/license-MIT-yellow.svg)
 
-  N/A
+## Questions
 
-  ## Contribution
+If you have any questions or feedback about the project, please contact the contributors by email at the following email addresses:
 
-  N/A
+- Chris Kennedy - [kennedy.christopherian@gmail.com](mailto:kennedy.christopherian@gmail.com)
 
-  ## Tests
+- Kevin Jun - [kwjun90@gmail.com](mailto:kwjun90@gmail.com)
 
-  N/A
+- John Hummel - [johnehummeljr@gmail.com](mailto:johnehummeljr@gmail.com)
 
-  ## Questions
-
-
-
-  If you have any questions or feedback about the project, please contact the contributors by email at the following email addresses:
-  
-  * Chris Kennedy - [kennedy.christopherian@gmail.com](mailto:kennedy.christopherian@gmail.com)
-
-  * Kevin Jun - [kwjun90@gmail.com](mailto:kwjun90@gmail.com)
-
-  * John Hummel - [johnehummeljr@gmail.com](mailto:johnehummeljr@gmail.com)
-
-  * Thomas Schmidt - [thomasemail@email.com](mailto:thomasemail@email.com)
-
-
-
-
+- Thomas Schmidt - [tschmidt@eceglobal.com](mailto:tschmidt@eceglobal.com)

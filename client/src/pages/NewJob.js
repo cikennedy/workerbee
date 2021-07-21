@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Categories = [
-  { label: "Lawn Care", value: "Lawn Care" },
+  { label: "Home/Lawn Care", value: "Home/Lawn Care" },
   { label: "Auto Care", value: "Auto Care" },
   { label: "Moving Help", value: "Moving Help" }
 ];

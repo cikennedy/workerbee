@@ -12,9 +12,6 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
-import AllJobs from "../components/Jobs"
-import API from "../utils/API";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import nodemailer from 'nodemailer';
@@ -121,7 +118,7 @@ export default function HomePage() {
 
     if (category === "Auto Care") {
       return "https://i.imgur.com/WRvdAxT.jpg"
-    } else if(category === "Lawn Care") {
+    } else if(category === "Home/Lawn Care") {
       return "https://i.imgur.com/2uOxjai.jpg"
     } else if (category === "Moving Help") {
       return "https://i.imgur.com/H2au5ID.jpg"
@@ -211,11 +208,11 @@ export default function HomePage() {
                   Post a Job
                   </Button>
                 </Grid>
-                <Grid item>
+                {/* <Grid item>
                   <Button variant="outlined" color="primary">
                     Sort by
                   </Button>
-                </Grid>
+                </Grid> */}
               </Grid>
             </div>
           </Container>
@@ -257,10 +254,6 @@ export default function HomePage() {
               </Grid>
             ))}
           </Grid>
-          <div   style={{
-    paddingTop: '50px'}}>
-          <MapContainer/>
-          </div>
         </Container>
       </main>
       {/* Footer
