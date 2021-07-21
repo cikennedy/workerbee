@@ -119,6 +119,34 @@ export default function HomePage() {
   // useEffect(() => {
   //   API.getBooks()
   // })
+
+  function mailer(job) {
+    console.log('JOB POSTER EMAIL', job)
+    let transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false, // true for 465, false for other ports
+      auth: {
+          user: 'workerbeeproject@gmail.com',
+          pass: 'Workerbee2021!',
+      },
+      });
+    
+      // send mail with defined transport object
+    let info =  transporter.sendMail({
+      from: '"Workerbee" <workerbeeproject@gmail.com>', // sender address
+      to: "workerbeeproject@gmail.com", // list of receivers
+      subject: "workerbee - Someone has applied to your poster job!", // Subject line
+      text: "Job Applied", // plain text body
+      html: "HTML BODY MESSAGE", // html body
+      });
+    
+      console.log("Message sent: %s", info.messageId);
+      console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+
+      // axiso call smack the route that has mailer stuff in it
+      // in the .thn o faxios call do history.push()
+    } 
   
   return (
     <React.Fragment>
@@ -186,7 +214,7 @@ export default function HomePage() {
                     <Button href={"/details/" + card._id} size="small" color="primary">
                       Details
                     </Button>
-                    <Button href={"/confirmation/" + card._id} size="small" color="primary">
+                    <Button onClick={mailer} href={"/confirmation/" + card._id} size="small" color="primary">
                       Apply
                     </Button>
                   </CardActions>
