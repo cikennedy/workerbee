@@ -15,7 +15,7 @@ import Container from '@material-ui/core/Container';
 // import Sidebar from '../components/Sidebar';
 import { useHistory } from "react-router-dom";
 import Footer from '../components/Footer';
-import API from "../utils/API";
+// import API from "../utils/API";
 import axios from "axios";
 import nodemailer from 'nodemailer';
 
@@ -53,27 +53,6 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(3),
   },
 }));
-
-const cards = [
-  {
-    img:
-      "https://i.imgur.com/WRvdAxT.jpg",
-    desc: "Car Wash",
-    loc: "Lakeview, Chicago"
-  },
-  {
-    img:
-      "https://i.imgur.com/2uOxjai.jpg",
-    desc: "Lawn Care",
-    loc: "Logan Square, Chicago"
-  },
-  {
-    img:
-      "https://i.imgur.com/H2au5ID.jpg",
-    desc: "Moving Help",
-    loc: "Lincoln Park, Chicago"
-  }
-];
 
 export default function Details(props) {
   const classes = useStyles();
@@ -148,7 +127,7 @@ export default function Details(props) {
 
   return (
     <div>
-      <h1> Testingg!!</h1>
+      <h1>Job Details</h1>
       <CssBaseline />
       <Container maxWidth="lg">
         {/* <Header title="Blog" sections={sections} /> */}

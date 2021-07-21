@@ -156,6 +156,7 @@ console.log(formObject)
             </Grid>
             <Grid item xs={12}>
             <Select
+            placeholder="Select Category..."
             label="Category"
             onChange={(e) => test(e)}
             options={Categories}
