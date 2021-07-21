@@ -29,6 +29,11 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
+    align: 'center',
+  },
+  navItem: {
+    color: 'white',
+
   },
   search: {
     position: 'relative',
@@ -180,10 +185,25 @@ export default function PrimarySearchAppBar() {
             aria-label="open drawer"
           >
             <MenuIcon />
-          <Button component={Link} to="/home"> Home </Button>
-          <Button component={Link} to="/account"> Account </Button>
-          <Button component={Link} to="/newjob"> New Job </Button>
+              
           </IconButton>
+
+          <Button component={Link} to="/home">
+            <Typography className={classes.navItem} variant="h6" color="inherit" noWrap>
+                Home 
+              </Typography>
+            </Button>
+          <Button component={Link} to="/account">
+            <Typography className={classes.navItem} variant="h6" color="inherit" noWrap>
+              Account 
+            </Typography>
+          </Button>
+          <Button component={Link} to="/newjob">
+            <Typography className={classes.navItem} variant="h6" color="inherit" noWrap>
+              New Job 
+            </Typography>
+          </Button>
+
           {/* <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -197,7 +217,7 @@ export default function PrimarySearchAppBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div> */}
-          <Typography className={classes.title} variant="h6" noWrap>
+          <Typography className={classes.title} variant="h6" align="center" noWrap>
             Workerbee
           </Typography>
           <div className={classes.grow} />
