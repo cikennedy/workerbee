@@ -178,7 +178,7 @@ export default function PrimarySearchAppBar() {
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
+          {/* <IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
@@ -186,18 +186,18 @@ export default function PrimarySearchAppBar() {
           >
             <MenuIcon />
               
-          </IconButton>
+          </IconButton> */}
 
           <Button component={Link} to="/home">
             <Typography className={classes.navItem} variant="h6" color="inherit" noWrap>
                 Home 
               </Typography>
             </Button>
-          <Button component={Link} to="/account">
+          {/* <Button component={Link} to="/account">
             <Typography className={classes.navItem} variant="h6" color="inherit" noWrap>
               Account 
             </Typography>
-          </Button>
+          </Button> */}
           <Button component={Link} to="/newjob">
             <Typography className={classes.navItem} variant="h6" color="inherit" noWrap>
               New Job 
