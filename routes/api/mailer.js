@@ -1,5 +1,5 @@
-const router = require ("express").Router();
-
+import router from ("express").Router();
+import nodemailer from 'nodemailer';
 
 // matches with /api/jobs
 router.post("/mailer", (req, res) => {

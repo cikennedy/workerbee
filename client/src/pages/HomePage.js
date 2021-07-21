@@ -236,7 +236,6 @@ export default function HomePage() {
                       Details
                     </Button>
                     <Button onClick={() => {mailer(card.email)}} size="small" color="primary">
-                    {/* <Button onClick={() => {handleClick("/confirmation/" + card._id)}} size="small" color="primary"> */}
                       Apply
                     </Button>
                   </CardActions>
