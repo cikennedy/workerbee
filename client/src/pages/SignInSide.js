@@ -107,7 +107,7 @@ function SignInSide() {
               margin="normal"
               required
               fullWidth
-              id="signinemail"
+              // id="signinemail"
               label="Email Address"
               name="email"
               autoComplete="email"
@@ -122,7 +122,7 @@ function SignInSide() {
               name="password"
               label="Password"
               type="password"
-              id="signinpassword"
+              // id="signinpassword"
               autoComplete="current-password"
               onChange={handleInputChange}
             />

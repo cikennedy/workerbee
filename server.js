@@ -50,11 +50,12 @@ mongoose.connect(
 
 // Add express-session and store as Express.js middleware
 app.use(session({
-  store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost/workerbee' }),
+  store: MongoStore.create({ 
+    mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost/workerbee'
+   }),
   secret: 'super secret secret',
-  name: {},
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: false
 }));
 
 
