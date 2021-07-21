@@ -16,6 +16,7 @@ import Link from '@material-ui/core/Link';
 import AllJobs from "../components/Jobs"
 import API from "../utils/API";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 const nodemailer = require('nodemailer');
 
 
@@ -93,6 +94,7 @@ const cards = [
 
 export default function HomePage() {
   const classes = useStyles();
+  const history = useHistory();
 
   const [jobs, getJobs] = useState([]);
 
@@ -107,6 +109,10 @@ export default function HomePage() {
       getJobs(() => allJobData);
     })
     .catch(err => console.log(err));
+  }
+
+  const handleClick = (route) => {
+    history.push(route);
   }
 
   // useEffect(() => {
@@ -211,7 +217,7 @@ export default function HomePage() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button href={"/details/" + card._id} size="small" color="primary">
+                    <Button onClick={() => {handleClick("/details/" + card._id)}} size="small" color="primary">
                       Details
                     </Button>
                     <Button onClick={mailer} href={"/confirmation/" + card._id} size="small" color="primary">
