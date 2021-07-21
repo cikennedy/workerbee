@@ -17,7 +17,7 @@ import { useHistory } from "react-router-dom";
 import Footer from '../components/Footer';
 // import API from "../utils/API";
 import axios from "axios";
-
+import nodemailer from 'nodemailer';
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -60,9 +60,6 @@ export default function Details(props) {
 
   const [job, setJob] = useState({});
 
-  const handleClick = (route) => {
-    history.push(route);
-  }
 
   // useEffect(() => { 
   //   getDetails();
@@ -96,6 +93,9 @@ export default function Details(props) {
   //     .catch(err => console.log(err));
   // }, [])
   
+  const handleClick = (route) => {
+    history.push(route);
+  }
 
   // useEffect(() => {
   //   axios.get('/api/jobs')
@@ -107,6 +107,23 @@ export default function Details(props) {
   // useEffect(() => {
   //   API.getBooks()
   // })
+
+  function mailer(email) {
+    console.log('JOB POSTER EMAIL', email)
+
+
+    var data = {
+      from: '"Workerbee" <workerbeeproject@gmail.com>', // sender address
+      to: email, // list of receivers
+      subject: "workerbee - Someone has applied to your poster job!", // Subject line
+      text: "Job Applied", // plain text body
+      html: "HTML BODY MESSAGE", // html body
+      }
+  axios.post('/api/mailer', data)
+  .then((response)=> {
+    history.push("/confirmation")
+  })
+} 
 
   return (
     <div>
@@ -147,7 +164,7 @@ export default function Details(props) {
                     <Typography gutterBottom variant="h5" component="h2">
                       Pay: ${job.pay}
                     </Typography>
-                    <Button onClick={() => {handleClick("/confirmation/" + job._id)}} size="small" color="primary">
+                    <Button onClick={() => {mailer(job.email)}} size="small" color="primary">
                       Apply
                     </Button>
 
