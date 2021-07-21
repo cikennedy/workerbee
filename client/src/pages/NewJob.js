@@ -222,7 +222,7 @@ function NewJob() {
           </Grid>
           <Button
             // type="submit"
-            onClick={saveJob}
+            onClick={handleFormSubmit}
             fullWidth
             variant="contained"
             color="primary"

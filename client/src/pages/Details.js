@@ -1,21 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
-// import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-// import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-// import Link from '@material-ui/core/Link';
-// import AllJobs from "../components/Jobs"
-// import MainFeaturedPost from '../components/MainFeaturedPost';
-// import Main from '../components/Main';
-// import Sidebar from '../components/Sidebar';
 import { useHistory } from "react-router-dom";
 import Footer from '../components/Footer';
-// import API from "../utils/API";
 import axios from "axios";
 import nodemailer from 'nodemailer';
 import { green } from '@material-ui/core/colors';
@@ -64,23 +56,6 @@ export default function Details(props) {
 
   const [job, setJob] = useState({});
 
-
-  // useEffect(() => { 
-  //   getDetails();
-  // }, []);
-
-  // const getDetails = () => {
-  //   API.getJob()
-  //   .then((res) => {
-  //     const allJobData = res.data;
-  //     console.log('Hello'
-  //     );
-  //     console.log(allJobData);
-  //     getJobDetails(() => allJobData);
-  //   })
-  //   .catch(err => console.error(`Error:`));
-  // }
-
   const {id} = useParams()
   useEffect(() => {
     // API.getJob()
@@ -91,29 +66,13 @@ export default function Details(props) {
       })
       .catch(err => console.log(err));
     }, []);
-  //       const singleJobData = res.data;
-  //       setJob(() => singleJobData))
-  //     })
-  //     .catch(err => console.log(err));
-  // }, [])
   
   const handleClick = (route) => {
     history.push(route);
   }
 
-  // useEffect(() => {
-  //   axios.get('/api/jobs')
-  //   .then(res => {
-  //     setJobs([...jobs, res.data]);
-  //     console.log(jobs);
-  //   })
-  // })
-  // useEffect(() => {
-  //   API.getBooks()
-  // })
-
   function mailer(email) {
-    console.log('JOB POSTER EMAIL', email)
+    
 
 
     var data = {
@@ -172,7 +131,7 @@ export default function Details(props) {
                     <Button variant="contained" onClick={() => {mailer(job.email)}} size="large" color="primary">
                       Apply
                     </Button>
-                    <Button className={classes.homeBtn} variant="contained" size="large" color="default" margin-left="25px">
+                    <Button className={classes.homeBtn} onClick={() => {handleClick('/home')}} variant="contained" size="large" color="default" margin-left="25px">
                       Return to Home
                     </Button>
 
