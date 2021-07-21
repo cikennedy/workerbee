@@ -124,7 +124,7 @@ export default function Details(props) {
   // })
 
   return (
-    <React.Fragment>
+    <div>
       <h1> Testingg!!</h1>
       <CssBaseline />
       <Container maxWidth="lg">
@@ -184,6 +184,6 @@ export default function Details(props) {
         </main>
       </Container>
       <Footer title="Workerbee" /*description="Something here to give the footer a purpose!"*/ />
-    </React.Fragment>
+    </div>
   );
 }
