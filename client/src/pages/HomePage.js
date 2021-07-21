@@ -259,7 +259,7 @@ export default function HomePage() {
           </Grid>
           <div   style={{
     paddingTop: '50px'}}>
-          <MapContainer />
+          <MapContainer/>
           </div>
         </Container>
       </main>
