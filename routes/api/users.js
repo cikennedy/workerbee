@@ -20,7 +20,7 @@ router.post("/signup", async (req, res) => {
     return res.status(400).send({ error: "Data not formatted properly" });
   }
 
-  // createing a new mongoose doc from user data
+  // creating a new mongoose doc from user data
   const user = new User(body);
   // generate salt to hash password
   const salt = await bcrypt.genSalt(10);
@@ -32,7 +32,7 @@ router.post("/signup", async (req, res) => {
 // signin route
 router.post("/signin", async (req, res) => {
   const body = req.body;
-  const user = await User.findOne({ email: body.email });
+  const userSession = await User.findOne({ email: body.email });
   if (user) {
     // check user password with hashed password stored in the database
     const validPassword = await bcrypt.compare(body.password, user.password);
@@ -45,9 +45,9 @@ router.post("/signin", async (req, res) => {
     res.status(401).json({ error: "User does not exist" });
   }
   req.session.save(() => {
-    req.session._id = user.id;
-    req.session.email = user.email;
-    req.session.username = user.username;
+    req.session._id = userSession._id;
+    req.session.email = userSession.email;
+    req.session.username = userSession.username;
     req.session.loggedIn = true;
 
     res.json({ message: "You have been logged in." });

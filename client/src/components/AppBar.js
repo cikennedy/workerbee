@@ -16,6 +16,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import SignOut from './SignOut';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -127,7 +128,7 @@ export default function PrimarySearchAppBar() {
       onClose={handleMenuClose}
     >
       
-      <MenuItem onClick={handleMenuClose}><Button component={Link} to="/newjob"> New Job </Button></MenuItem>
+      <MenuItem onClick={handleMenuClose}><SignOut></SignOut></MenuItem>
       <MenuItem onClick={handleMenuClose}><Button component={Link} to="/account"> Account </Button></MenuItem>
     </Menu>
   );
