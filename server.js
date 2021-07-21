@@ -41,7 +41,7 @@ app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/workerbee",
+  process.env.MONGODB_URI || "mongodb://localhost/workerbee2",
   {
     useCreateIndex: true,
     useNewUrlParser: true
@@ -51,7 +51,7 @@ mongoose.connect(
 // Add express-session and store as Express.js middleware
 app.use(session({
   store: MongoStore.create({ 
-    mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost/workerbee'
+    mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost/workerbee2'
    }),
   secret: 'super secret secret',
   resave: false,

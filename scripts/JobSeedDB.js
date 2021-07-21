@@ -3,7 +3,7 @@ const db = require("../models");
 
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb://localhost/workerbee"
+  "mongodb://localhost/workerbee2"
 );
 
 const newJobSeed = [
@@ -41,9 +41,9 @@ const newJobSeed = [
   },
 ]
 
-db.workerbee
+db.workerbee2
   .remove({})
-  .then(() => db.workerbee.collection.insertMany(newJobSeed))
+  .then(() => db.workerbee2.collection.insertMany(newJobSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
