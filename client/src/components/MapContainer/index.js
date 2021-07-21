@@ -42,7 +42,7 @@ class Map extends Component {
 
   componentDidMount = () => {
     // Google Geocoder
-    Geocode.setApiKey("AIzaSyCPhWnebKd5wNSgnlUres5WdKGQdwc1jS0");
+    Geocode.setApiKey(API_KEY);
     Geocode.setLanguage("en");
 
     // set this as US
@@ -66,7 +66,7 @@ class Map extends Component {
       // Important! Always set the container height explicitly
       <div style={{ height: "100vh", width: "100%" }}>
         <GoogleMapReact
-          bootstrapURLKeys={{ key : "AIzaSyCPhWnebKd5wNSgnlUres5WdKGQdwc1jS0" }}
+          bootstrapURLKeys={{ key : API_KEY }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
         >
