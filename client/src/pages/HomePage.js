@@ -115,6 +115,18 @@ export default function HomePage() {
     history.push(route);
   }
 
+  const imagePicker = (category) => {
+
+    if (category === 'Auto Care') {
+      return "https://i.imgur.com/WRvdAxT.jpg"
+    } else if(category === 'Lawn Care') {
+      return "https://i.imgur.com/2uOxjai.jpg"
+    } else if (category === 'Moving Help') {
+      return "https://i.imgur.com/H2au5ID.jpg"
+    }
+
+  }
+
   // useEffect(() => {
   //   axios.get('/api/jobs')
   //   .then(res => {
@@ -169,11 +181,11 @@ export default function HomePage() {
             {jobs.map((card) => (
               <Grid item key={card._id} xs={12} sm={6} md={4}>
                 <Card className={classes.card}>
-                  {/* <CardMedia
+                  <CardMedia
                     className={classes.cardMedia}
-                    image={card.img}
+                    image={() => {imagePicker(card.category)}}
                     title="Car Wash"
-                  /> */}
+                  />
                   <CardContent className={classes.cardContent}>
                     <Typography variant="h6" color="inherit">
                       {card.job_title}
