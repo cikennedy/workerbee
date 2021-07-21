@@ -41,8 +41,7 @@ class Map extends Component {
 
   componentDidMount = () => {
     // Google Geocoder
-    // Geocode.setApiKey(API_KEY);
-    Geocode.setApiKey("AIzaSyCPhWnebKd5wNSgnlUres5WdKGQdwc1jS0");
+    Geocode.setApiKey(API_KEY);
     Geocode.setLanguage("en");
 
     // set this as US
