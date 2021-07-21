@@ -41,21 +41,21 @@ app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/FinalProjectDB",
+  process.env.MONGODB_URI || "mongodb://localhost/workerbee",
   {
     useCreateIndex: true,
     useNewUrlParser: true
   }
 );
 
-// // Add express-session and store as Express.js middleware
-// app.use(session({
-//   store: MongoStore.create({ mongoUrl: 'mongodb://localhost/FinalProjectDB' }),
-//   secret: 'super secret secret',
-//   name: {},
-//   resave: false,
-//   saveUninitialized: true
-// }));
+// Add express-session and store as Express.js middleware
+app.use(session({
+  store: MongoStore.create({ mongoUrl: 'mongodb://localhost/workerbee' }),
+  secret: 'super secret secret',
+  name: {},
+  resave: false,
+  saveUninitialized: true
+}));
 
 
 app.get("*", (req, res) => {
