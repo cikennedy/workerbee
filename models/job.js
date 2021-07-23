@@ -27,6 +27,14 @@ const jobSchema = new Schema(
         required: "Enter address for job"
     },
 
+    lat: {
+      type: String,
+    },
+
+    lng: {
+      type: String,
+    },
+
     phone: {
         type: String,
         required: "Enter phone number(xxx-xxx-xxxx) to be reached"

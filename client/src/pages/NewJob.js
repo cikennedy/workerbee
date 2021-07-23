@@ -1,30 +1,31 @@
-import React, { useState } from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import Select from 'react-dropdown-select';
-import axios from 'axios';
-import { rest } from 'lodash';
+import React, { useState } from "react";
+import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import Grid from "@material-ui/core/Grid";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+import Select from "react-dropdown-select";
+import axios from "axios";
+import { rest } from "lodash";
+import Geocode from "react-geocode";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing(3),
   },
   submit: {
@@ -35,23 +36,47 @@ const useStyles = makeStyles((theme) => ({
 const Categories = [
   { label: "Home/Lawn Care", value: "Home/Lawn Care" },
   { label: "Auto Care", value: "Auto Care" },
-  { label: "Moving Help", value: "Moving Help" }
+  { label: "Moving Help", value: "Moving Help" },
 ];
 
 function NewJob() {
-  const [formObject, setFormObject] = useState({})
+  const [formObject, setFormObject] = useState({});
   const classes = useStyles();
 
   function handleInputChange(event) {
     // event.preventDefault();
     const { name, value } = event.target;
-    setFormObject({...formObject, [name]: value})
-  };
+    setFormObject({ ...formObject, [name]: value });
+  }
 
   const test = (e) => {
     let value = e[0]["value"];
-    setFormObject({...formObject, ["category"]: value})
-  }
+    setFormObject({ ...formObject, ["category"]: value });
+  };
+
+  // set Google Maps Geocoding API for purposes of quota management. Its optional but recommended.
+  Geocode.setApiKey("AIzaSyCPhWnebKd5wNSgnlUres5WdKGQdwc1jS0");
+
+  // set response language. Defaults to english.
+  Geocode.setLanguage("en");
+
+  // set response region. Its optional.
+  // A Geocoding request with region=es (Spain) will return the Spanish city.
+  Geocode.setRegion("us");
+
+  // Get latitude & longitude from address.
+  Geocode.fromAddress(formObject.address).then(
+    (response) => {
+      const { lat, lng } = response.results[0].geometry.location;
+      console.log(lat, lng);
+
+    },
+
+
+    (error) => {
+      console.error(error);
+    }
+  );
 
   async function handleFormSubmit(event) {
     event.preventDefault();
@@ -63,10 +88,23 @@ function NewJob() {
     const email = formObject.email;
     const duration = formObject.duration;
     const pay = formObject.pay;
-    if ( job_title && category && description && address && phone && email
-      && duration && pay ) {
-        const response = await fetch('/api/jobs', {
-        method: 'POST',
+    // const lat = { lat };
+    // const lon = { lon };
+
+    if (
+      job_title &&
+      category &&
+      description &&
+      address &&
+      lat &&
+      lon &&
+      phone &&
+      email &&
+      duration &&
+      pay
+    ) {
+      const response = await fetch("/api/jobs", {
+        method: "POST",
         body: JSON.stringify({
           job_title,
           category,
@@ -77,18 +115,20 @@ function NewJob() {
           duration,
           pay,
         }),
-        headers: { 'Content-Type': 'application/json' },
+        headers: { "Content-Type": "application/json" },
       });
-    if (response.ok) {
-      alert("Job Posted");
-      document.location.replace(`/home`);
-      // Replace the above code with below once the route is working
-      // document.location.replace(`/jobs/${job_id}`);
-    } else {
-      alert(response.statusText);
+      if (response.ok) {
+        alert("Job Posted");
+        document.location.replace(`/home`);
+        // Replace the above code with below once the route is working
+        // document.location.replace(`/jobs/${job_id}`);
+      } else {
+        alert(response.statusText);
+      }
     }
   }
-  };
+
+  
 
   return (
     <Container component="main" maxWidth="xs">
@@ -102,7 +142,7 @@ function NewJob() {
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
-          <Grid item xs={12}>
+            <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 required
@@ -115,12 +155,12 @@ function NewJob() {
               />
             </Grid>
             <Grid item xs={12}>
-            <Select
-            placeholder="Select Category..."
-            label="Category"
-            onChange={(e) => test(e)}
-            options={Categories}
-            />
+              <Select
+                placeholder="Select Category..."
+                label="Category"
+                onChange={(e) => test(e)}
+                options={Categories}
+              />
               {/* <TextField
                 variant="outlined"
                 required
