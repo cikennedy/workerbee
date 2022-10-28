@@ -9,8 +9,8 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Select from "react-dropdown-select";
-import axios from "axios";
-import { rest } from "lodash";
+// import axios from "axios";
+// import { rest } from "lodash";
 import Geocode from "react-geocode";
 
 const useStyles = makeStyles((theme) => ({
@@ -54,29 +54,29 @@ function NewJob() {
     setFormObject({ ...formObject, ["category"]: value });
   };
 
-  // set Google Maps Geocoding API for purposes of quota management. Its optional but recommended.
-  Geocode.setApiKey("AIzaSyCPhWnebKd5wNSgnlUres5WdKGQdwc1jS0");
+//   // set Google Maps Geocoding API for purposes of quota management. Its optional but recommended.
+//   Geocode.setApiKey("AIzaSyCPhWnebKd5wNSgnlUres5WdKGQdwc1jS0");
 
-  // set response language. Defaults to english.
-  Geocode.setLanguage("en");
+//   // set response language. Defaults to english.
+//   Geocode.setLanguage("en");
 
-  // set response region. Its optional.
-  // A Geocoding request with region=es (Spain) will return the Spanish city.
-  Geocode.setRegion("us");
+//   // set response region. Its optional.
+//   // A Geocoding request with region=es (Spain) will return the Spanish city.
+//   Geocode.setRegion("us");
 
-  // Get latitude & longitude from address.
-  Geocode.fromAddress(formObject.address).then(
-    (response) => {
-      const { lat, lng } = response.results[0].geometry.location;
-      console.log(lat, lng);
+//   // Get latitude & longitude from address.
+//   Geocode.fromAddress(formObject.address).then(
+//     (response) => {
+//       const { lat, lng } = response.results[0].geometry.location;
+//       console.log(lat, lng);
 
-    },
+//     },
 
 
-    (error) => {
-      console.error(error);
-    }
-  );
+//     (error) => {
+//       console.error(error);
+//     }
+//   );
 
   async function handleFormSubmit(event) {
     event.preventDefault();
@@ -88,16 +88,12 @@ function NewJob() {
     const email = formObject.email;
     const duration = formObject.duration;
     const pay = formObject.pay;
-    // const lat = { lat };
-    // const lon = { lon };
 
     if (
       job_title &&
       category &&
       description &&
       address &&
-      lat &&
-      lon &&
       phone &&
       email &&
       duration &&

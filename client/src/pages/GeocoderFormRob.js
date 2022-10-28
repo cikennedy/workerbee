@@ -9,9 +9,26 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Select from "react-dropdown-select";
-import axios from "axios";
-import { rest } from "lodash";
+// import axios from "axios";
+// import { rest } from "lodash";
 import Geocode from "react-geocode";
+
+// ROB: only want/need to call this config stuff once (so shouldn't be in a function)
+Geocode.setApiKey("AIzaSyCPhWnebKd5wNSgnlUres5WdKGQdwc1jS0");
+Geocode.setLanguage("en");
+Geocode.setRegion("us");
+
+async function geocodeAddress (address) {
+  try {
+    const { results: [result] } = await Geocode.fromAddress(address);
+
+    return result?.geometry?.location || {};
+  } catch (error) {
+    console.error(error);
+
+    return {};
+  }
+}
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -54,30 +71,6 @@ function NewJob() {
     setFormObject({ ...formObject, ["category"]: value });
   };
 
-  // set Google Maps Geocoding API for purposes of quota management. Its optional but recommended.
-  Geocode.setApiKey("AIzaSyCPhWnebKd5wNSgnlUres5WdKGQdwc1jS0");
-
-  // set response language. Defaults to english.
-  Geocode.setLanguage("en");
-
-  // set response region. Its optional.
-  // A Geocoding request with region=es (Spain) will return the Spanish city.
-  Geocode.setRegion("us");
-
-  // Get latitude & longitude from address.
-  Geocode.fromAddress(formObject.address).then(
-    (response) => {
-      const { lat, lng } = response.results[0].geometry.location;
-      console.log(lat, lng);
-
-    },
-
-
-    (error) => {
-      console.error(error);
-    }
-  );
-
   async function handleFormSubmit(event) {
     event.preventDefault();
     const job_title = formObject.job_title;
@@ -88,21 +81,20 @@ function NewJob() {
     const email = formObject.email;
     const duration = formObject.duration;
     const pay = formObject.pay;
-    // const lat = { lat };
-    // const lon = { lon };
 
     if (
       job_title &&
       category &&
       description &&
       address &&
-      lat &&
-      lon &&
       phone &&
       email &&
       duration &&
       pay
     ) {
+
+      const { lat, lng } = await geocodeAddress(address);
+
       const response = await fetch("/api/jobs", {
         method: "POST",
         body: JSON.stringify({
@@ -114,6 +106,9 @@ function NewJob() {
           email,
           duration,
           pay,
+          // ROB: depending on what the api request signature looks like...
+          lat,
+          lng,
         }),
         headers: { "Content-Type": "application/json" },
       });

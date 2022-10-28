@@ -152,14 +152,14 @@ export default function PrimarySearchAppBar() {
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
-          <Button component={Link} to="/home">
+          <Button component={Link} to="/album">
             <Typography className={classes.navItem} variant="h6" color="inherit" noWrap>
-                Home 
+                Little Baby Ken Ken!
               </Typography>
             </Button>
-          <Button component={Link} to="/newjob">
+          <Button component={Link} to="/album">
             <Typography className={classes.navItem} variant="h6" color="inherit" noWrap>
-              New Job 
+              New Post
             </Typography>
           </Button>
           <div className={classes.grow} />
